@@ -83,9 +83,29 @@ namespace ConsoleCoffe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _462568849_941227144536412_2916676744882120622_n_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("462568849_941227144536412_2916676744882120622_n-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _465755238_889672026696301_4767656271775251073_n {
             get {
                 object obj = ResourceManager.GetObject("465755238_889672026696301_4767656271775251073_n", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _465755238_889672026696301_4767656271775251073_n_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("465755238_889672026696301_4767656271775251073_n-removebg-preview", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

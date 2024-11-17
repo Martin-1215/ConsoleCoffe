@@ -32,7 +32,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.Pass = new System.Windows.Forms.Label();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.LoginBtn = new System.Windows.Forms.Button();
@@ -43,7 +43,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.IndianRed;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(137)))), ((int)(((byte)(121)))));
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -59,7 +59,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(120, 136);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 16);
+            this.label3.Size = new System.Drawing.Size(46, 16);
             this.label3.TabIndex = 1;
             this.label3.Text = "Login";
             // 
@@ -83,16 +83,15 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "UserName:";
             // 
-            // label2
+            // Pass
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(23, 265);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Password:";
-            this.label2.Visible = false;
+            this.Pass.AutoSize = true;
+            this.Pass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Pass.Location = new System.Drawing.Point(23, 265);
+            this.Pass.Name = "Pass";
+            this.Pass.Size = new System.Drawing.Size(91, 20);
+            this.Pass.TabIndex = 3;
+            this.Pass.Text = "Password:";
             // 
             // txtUser
             // 
@@ -110,7 +109,7 @@
             // 
             // LoginBtn
             // 
-            this.LoginBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.LoginBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(208)))), ((int)(((byte)(184)))));
             this.LoginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.LoginBtn.Location = new System.Drawing.Point(39, 352);
             this.LoginBtn.Name = "LoginBtn";
@@ -122,7 +121,7 @@
             // 
             // exit
             // 
-            this.exit.BackColor = System.Drawing.Color.Red;
+            this.exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.exit.Cursor = System.Windows.Forms.Cursors.Default;
             this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.exit.Location = new System.Drawing.Point(153, 352);
@@ -142,7 +141,7 @@
             this.Controls.Add(this.LoginBtn);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.txtUser);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.Pass);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -161,7 +160,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label Pass;
         private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Button LoginBtn;

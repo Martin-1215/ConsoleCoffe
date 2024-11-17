@@ -6,41 +6,48 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace ConsoleCoffe
 {
     internal class mainclass
     {
-        public static readonly string con_string = "Data Source=DESKTOP-73UJIM6\\MSSQLSERVER01; Initial Catalog=ConsoleCoffe;Integrated Security=True";
-        public static SqlConnection con = new SqlConnection(con_string);
-        
+        private static readonly string conString = "Data Source=DESKTOP-73UJIM6\\MSSQLSERVER01; Initial Catalog=ConsoleCoffeDB;Integrated Security=True";
 
-        public static bool IsValidUser(string user, string pass)
+        public static bool IsValidUser(string username, string password)
         {
-           
-            bool IsValid = false;
+            bool isValid = false;
 
-            string qry = @"Select * users where username = '"+user+"'and upass = '"+pass+"' ";
+            // Correct SQL syntax
+            string query = "SELECT * FROM users WHERE username = @username AND upass = @password";
 
-            SqlCommand cmd = new SqlCommand(qry,con);
-          
-            DataTable dt = new DataTable();
-
-          SqlDataAdapter da = new SqlDataAdapter(cmd);
-          da.Fill(dt);
-
-
-            if (dt.Rows.Count > 0 )
+            try
             {
-                 IsValid = true;
-
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@username", username);
+                        cmd.Parameters.AddWithValue("@password", password);
+                        
+                        con.Open();
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            isValid = reader.HasRows; // Check if the query returned any rows
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log or handle the exception
+                Console.WriteLine($"An error occurred: {ex.Message}");
             }
 
-
-
-            return IsValid;
-            
+            return isValid;
         }
+       
+        
 
     }
 }
