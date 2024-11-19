@@ -16,8 +16,53 @@ namespace ConsoleCoffe
         public Categories()
         {
             InitializeComponent();
-            
-    }
+            InitializeDataGridView();
+
+        }
+
+        private void InitializeDataGridView()
+        {
+            // Disable auto column generation
+            Catego.AutoGenerateColumns = false;
+
+            // Clear existing columns if necessary
+            Catego.Columns.Clear();
+
+            // Define the columns explicitly
+            Catego.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "catID",
+                HeaderText = "Category ID",
+                DataPropertyName = "catID" // Bind to the catID field in the data source
+            });
+
+            Catego.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "catName",
+                HeaderText = "Category Name",
+                DataPropertyName = "catName" // Bind to the catName field in the data source
+            });
+
+            // Add Edit Button Column
+            DataGridViewButtonColumn editButtonColumn = new DataGridViewButtonColumn
+            {
+                Name = "dvg", // Change to a meaningful name
+                HeaderText = "Edit",
+                Text = "Edit",
+                UseColumnTextForButtonValue = true // Display "Edit" text in all rows
+            };
+            Catego.Columns.Add(editButtonColumn);
+
+            // Add Delete Button Column
+            DataGridViewButtonColumn deleteButtonColumn = new DataGridViewButtonColumn
+            {
+                Name = "dvgdel", // Change to a meaningful name
+                HeaderText = "Delete",
+                Text = "Delete",
+                UseColumnTextForButtonValue = true // Display "Delete" text in all rows
+            };
+            Catego.Columns.Add(deleteButtonColumn);
+        }
 
         // Method to load data into the DataGridView based on the search text
         public void getData(string search = "")
@@ -55,8 +100,8 @@ namespace ConsoleCoffe
             if (Catego.CurrentCell.OwningColumn.Name == "dvg") // Change to the actual name of your edit column
             {
                 AddCategory frm = new AddCategory();
-                frm.id = Convert.ToInt32(Catego.CurrentRow.Cells["catID"].Value); // Assuming catID is the ID
-                frm.txtname.Text = Convert.ToString(Catego.CurrentRow.Cells["catName"].Value); // Assuming catName is the category name
+                frm.id = Convert.ToInt32(Catego.CurrentRow.Cells["id"].Value); // Assuming catID is the ID
+                frm.txtname.Text = Convert.ToString(Catego.CurrentRow.Cells["name"].Value); // Assuming catName is the category name
                 frm.ShowDialog(); // Show the edit form as a dialog
 
                 // Refresh the data grid view after editing

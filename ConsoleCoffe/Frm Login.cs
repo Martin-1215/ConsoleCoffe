@@ -15,35 +15,47 @@ namespace ConsoleCoffe
         public Form1()
         {
             InitializeComponent();
+            txtPass.UseSystemPasswordChar = true; // Mask password input
         }
 
         private void LoginBtn_Click(object sender, EventArgs e)
         {
-            if (mainclass.IsValidUser(txtUser.Text,txtPass.Text) == false)
+            // Check if fields are empty
+            if (string.IsNullOrWhiteSpace(txtUser.Text) || string.IsNullOrWhiteSpace(txtPass.Text))
             {
-                MessageBox.Show("Invalid User Or Password !! Please Try Again");
-
+                MessageBox.Show("Please enter both username and password.");
+                txtUser.Focus(); // Set focus to the username field
                 return;
-
             }
-            else
+
+            // Validate user credentials
+            if (!mainclass.IsValidUser(txtUser.Text, txtPass.Text))
             {
-                this.Hide();
-
-                FrmDashBoard frmM = new FrmDashBoard();
-                frmM.Show();
-
-
-
+                MessageBox.Show("Invalid User Or Password! Please Try Again.");
+                txtUser.Clear(); // Clear the username field
+                txtPass.Clear(); // Clear the password field
+                txtUser.Focus(); // Set focus back to the username field
+                return;
             }
 
-
-
+            // Hide the current form and show the dashboard
+            this.Hide();
+            FrmDashBoard frmM = new FrmDashBoard();
+            frmM.Show();
         }
 
         private void exit_Click(object sender, EventArgs e)
         {
-            Application.Exit(); 
+            Application.Exit();
+        }
+
+        private void Showpass_Click(object sender, EventArgs e)
+        {
+            // Toggle the UseSystemPasswordChar property
+            txtPass.UseSystemPasswordChar = !txtPass.UseSystemPasswordChar;
+
+            // Change the button text based on the visibility of the password
+            Showpass.Text = txtPass.UseSystemPasswordChar ? "Show" : "Hide";
         }
     }
 }
