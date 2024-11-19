@@ -82,7 +82,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(141, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 62);
+            this.label1.Size = new System.Drawing.Size(149, 62);
             this.label1.TabIndex = 7;
             this.label1.Text = "POS";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -187,6 +187,7 @@
             this.dataGridViewPOS.Location = new System.Drawing.Point(890, 149);
             this.dataGridViewPOS.Name = "dataGridViewPOS";
             this.dataGridViewPOS.ReadOnly = true;
+            this.dataGridViewPOS.RowHeadersWidth = 51;
             this.dataGridViewPOS.Size = new System.Drawing.Size(482, 453);
             this.dataGridViewPOS.TabIndex = 4;
             // 
@@ -197,11 +198,13 @@
             this.Sr.MinimumWidth = 50;
             this.Sr.Name = "Sr";
             this.Sr.ReadOnly = true;
+            this.Sr.Width = 125;
             // 
             // ProductName
             // 
             this.ProductName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ProductName.HeaderText = "Name";
+            this.ProductName.MinimumWidth = 6;
             this.ProductName.Name = "ProductName";
             this.ProductName.ReadOnly = true;
             // 
@@ -212,6 +215,7 @@
             this.QtyProduct.MinimumWidth = 30;
             this.QtyProduct.Name = "QtyProduct";
             this.QtyProduct.ReadOnly = true;
+            this.QtyProduct.Width = 125;
             // 
             // PriceProduct
             // 
@@ -220,6 +224,7 @@
             this.PriceProduct.MinimumWidth = 50;
             this.PriceProduct.Name = "PriceProduct";
             this.PriceProduct.ReadOnly = true;
+            this.PriceProduct.Width = 125;
             // 
             // AmountProduct
             // 
@@ -228,10 +233,11 @@
             this.AmountProduct.MinimumWidth = 50;
             this.AmountProduct.Name = "AmountProduct";
             this.AmountProduct.ReadOnly = true;
+            this.AmountProduct.Width = 125;
             // 
             // POS
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1384, 697);
             this.Controls.Add(this.dataGridViewPOS);
