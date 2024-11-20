@@ -100,8 +100,8 @@ namespace ConsoleCoffe
             if (Catego.CurrentCell.OwningColumn.Name == "dvg") // Change to the actual name of your edit column
             {
                 AddCategory frm = new AddCategory();
-                frm.id = Convert.ToInt32(Catego.CurrentRow.Cells["id"].Value); // Assuming catID is the ID
-                frm.txtname.Text = Convert.ToString(Catego.CurrentRow.Cells["name"].Value); // Assuming catName is the category name
+                frm.id = Convert.ToInt32(Catego.CurrentRow.Cells["catid"].Value); // Assuming catID is the ID
+                frm.txtname.Text = Convert.ToString(Catego.CurrentRow.Cells["catName"].Value); // Assuming catName is the category name
                 frm.ShowDialog(); // Show the edit form as a dialog
 
                 // Refresh the data grid view after editing
