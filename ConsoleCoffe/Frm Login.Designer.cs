@@ -30,6 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Pass = new System.Windows.Forms.Label();
             this.txtUser = new System.Windows.Forms.TextBox();
@@ -37,7 +38,6 @@
             this.LoginBtn = new System.Windows.Forms.Button();
             this.exit = new System.Windows.Forms.Button();
             this.Showpass = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -50,7 +50,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(385, 202);
             this.panel1.TabIndex = 1;
@@ -65,6 +65,17 @@
             this.label3.Size = new System.Drawing.Size(55, 20);
             this.label3.TabIndex = 1;
             this.label3.Text = "Login";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ConsoleCoffe.Properties.Resources._1000_F_259394679_GGA8JJAEkukYJL9XXFH2JoC3nMguBPNH_removebg_preview;
+            this.pictureBox1.Location = new System.Drawing.Point(16, 15);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(353, 149);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -91,25 +102,28 @@
             // txtUser
             // 
             this.txtUser.Location = new System.Drawing.Point(52, 265);
-            this.txtUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUser.Margin = new System.Windows.Forms.Padding(4);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(264, 22);
             this.txtUser.TabIndex = 4;
+            this.txtUser.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUser_KeyDown);
             // 
             // txtPass
             // 
             this.txtPass.Location = new System.Drawing.Point(52, 357);
-            this.txtPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPass.Margin = new System.Windows.Forms.Padding(4);
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(264, 22);
             this.txtPass.TabIndex = 5;
+            this.txtPass.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
+            this.txtPass.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPass_KeyDown);
             // 
             // LoginBtn
             // 
             this.LoginBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(208)))), ((int)(((byte)(184)))));
             this.LoginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.LoginBtn.Location = new System.Drawing.Point(52, 433);
-            this.LoginBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LoginBtn.Margin = new System.Windows.Forms.Padding(4);
             this.LoginBtn.Name = "LoginBtn";
             this.LoginBtn.Size = new System.Drawing.Size(113, 41);
             this.LoginBtn.TabIndex = 6;
@@ -123,7 +137,7 @@
             this.exit.Cursor = System.Windows.Forms.Cursors.Default;
             this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.exit.Location = new System.Drawing.Point(204, 433);
-            this.exit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.exit.Margin = new System.Windows.Forms.Padding(4);
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(113, 41);
             this.exit.TabIndex = 7;
@@ -141,17 +155,6 @@
             this.Showpass.UseVisualStyleBackColor = true;
             this.Showpass.Click += new System.EventHandler(this.Showpass_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ConsoleCoffe.Properties.Resources._1000_F_259394679_GGA8JJAEkukYJL9XXFH2JoC3nMguBPNH_removebg_preview;
-            this.pictureBox1.Location = new System.Drawing.Point(16, 15);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(353, 149);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -166,10 +169,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -70,6 +70,7 @@
             this.label2.Size = new System.Drawing.Size(142, 35);
             this.label2.TabIndex = 1;
             this.label2.Text = "Category List";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // Catego
             // 
@@ -182,7 +183,7 @@
             // Add
             // 
             this.Add.Image = global::ConsoleCoffe.Properties.Resources.add_removebg_preview;
-            this.Add.Location = new System.Drawing.Point(42, 72);
+            this.Add.Location = new System.Drawing.Point(78, 78);
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(73, 65);
             this.Add.TabIndex = 0;

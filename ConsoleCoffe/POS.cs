@@ -26,5 +26,15 @@ namespace ConsoleCoffe
         {
             Console.WriteLine("helloWorld");
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -46,6 +46,7 @@
             this.QtyProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PriceProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AmountProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.exit = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPOS)).BeginInit();
@@ -63,6 +64,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(137)))), ((int)(((byte)(121)))));
+            this.panel2.Controls.Add(this.exit);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.button6);
             this.panel2.Controls.Add(this.button5);
@@ -76,6 +78,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1384, 90);
             this.panel2.TabIndex = 1;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label1
             // 
@@ -235,6 +238,17 @@
             this.AmountProduct.ReadOnly = true;
             this.AmountProduct.Width = 125;
             // 
+            // exit
+            // 
+            this.exit.Location = new System.Drawing.Point(814, 30);
+            this.exit.Margin = new System.Windows.Forms.Padding(4);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(35, 27);
+            this.exit.TabIndex = 8;
+            this.exit.Text = "x";
+            this.exit.UseVisualStyleBackColor = true;
+            this.exit.Click += new System.EventHandler(this.button1_Click);
+            // 
             // POS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -279,5 +293,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn QtyProduct;
         private System.Windows.Forms.DataGridViewTextBoxColumn PriceProduct;
         private System.Windows.Forms.DataGridViewTextBoxColumn AmountProduct;
+        private System.Windows.Forms.Button exit;
     }
 }

@@ -56,6 +56,10 @@ namespace ConsoleCoffe
             {
                 MessageBox.Show($"Error saving category: {ex.Message}");
             }
+            finally
+            {
+                this.Close();
+            }
         }
         private void AddCategory_Load(object sender, EventArgs e)
         {

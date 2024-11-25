@@ -128,5 +128,10 @@ namespace ConsoleCoffe
                 getData(); // Refresh the data grid view after deletion
             }
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

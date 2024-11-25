@@ -19,8 +19,6 @@ namespace ConsoleCoffe
         public static bool IsValidUser(string username, string password)
         {
             bool isValid = false;
-
-            // Correct SQL syntax
             string qry = "SELECT * FROM users WHERE username = @username AND upass = @password";
 
             try
@@ -74,6 +72,7 @@ namespace ConsoleCoffe
             }
             return res; // Return number of affected rows
         }
+
         public static bool TestConnection()
         {
             using (SqlConnection con = new SqlConnection(conString))
@@ -83,9 +82,14 @@ namespace ConsoleCoffe
                     con.Open();
                     return true; // Connection successful
                 }
+                catch (SqlException ex)
+                {
+                    Console.WriteLine($"SQL Connection Error: {ex.Message}");
+                    return false; // Connection failed
+                }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Connection failed: {ex.Message}");
+                    Console.WriteLine($"Error: {ex.Message}");
                     return false; // Connection failed
                 }
             }
@@ -116,8 +120,7 @@ namespace ConsoleCoffe
                         // Optionally, clear the DataGridView if no data is found
                         if (dt.Rows.Count == 0)
                         {
-                            // Clear the DataGridView or handle it accordingly without a message box
-                            gv.DataSource = null; // Or set it to an empty DataTable
+                            gv.DataSource = null; // Clear the DataGridView
                         }
                     }
                 }
@@ -125,6 +128,49 @@ namespace ConsoleCoffe
                 {
                     MessageBox.Show($"An error occurred while loading data: {ex.Message}");
                 }
+            }
+        }
+
+        public static void CVFill(string qry, ComboBox cb)
+        {
+            using (SqlConnection con = new SqlConnection(conString))
+            {
+                try
+                {
+                    con.Open(); // Ensure the connection is open
+
+                    using (SqlCommand cmd = new SqlCommand(qry, con))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+
+                            // Ensure the DataTable has the expected columns
+                            if (dt.Columns.Contains("name") && dt.Columns.Contains("id"))
+                            {
+                                cb.DisplayMember = "name"; // Ensure this column exists in dt
+                                cb.ValueMember = "id"; // Ensure this column exists in dt
+                                cb.DataSource = dt;
+                                cb.SelectedIndex = -1; // Clear any selected item
+                            }
+                            else
+                            {
+                                MessageBox.Show("The expected columns 'name' or 'id' do not exist in the result set.");
+                            }
+                        }
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("An error occurred while filling the ComboBox: " + ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An unexpected error occurred: " + ex.Message);
+                }
+                // No need for finally block to close the connection, as 'using' takes care of that
             }
         }
     }
