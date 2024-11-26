@@ -143,6 +143,16 @@ namespace ConsoleCoffe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap images {
+            get {
+                object obj = ResourceManager.GetObject("images", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap option {
             get {
                 object obj = ResourceManager.GetObject("option", resourceCulture);
@@ -156,6 +166,26 @@ namespace ConsoleCoffe.Properties {
         internal static System.Drawing.Bitmap option_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("option-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap png_clipart_plus_and_minus_signs_computer_icons_emoji_logo_plus {
+            get {
+                object obj = ResourceManager.GetObject("png-clipart-plus-and-minus-signs-computer-icons-emoji-logo-plus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap png_clipart_symbol_plus_and_minus_signs_symbol_miscellaneous_logo {
+            get {
+                object obj = ResourceManager.GetObject("png-clipart-symbol-plus-and-minus-signs-symbol-miscellaneous-logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

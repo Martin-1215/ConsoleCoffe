@@ -145,5 +145,15 @@ namespace ConsoleCoffe
         {
             this.Close();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void catcombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

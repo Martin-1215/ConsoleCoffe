@@ -222,5 +222,14 @@
   <ItemGroup>
     <None Include="Resources\Showpass-removebg-preview %281%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-clipart-plus-and-minus-signs-computer-icons-emoji-logo-plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-clipart-symbol-plus-and-minus-signs-symbol-miscellaneous-logo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -49,7 +49,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(137)))), ((int)(((byte)(121)))));
+            this.panel1.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel1.Controls.Add(this.POSBtn);
             this.panel1.Controls.Add(this.Report);
             this.panel1.Controls.Add(this.button7);
@@ -74,7 +74,7 @@
             this.POSBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.POSBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.POSBtn.ForeColor = System.Drawing.Color.Black;
-            this.POSBtn.Location = new System.Drawing.Point(31, 235);
+            this.POSBtn.Location = new System.Drawing.Point(32, 316);
             this.POSBtn.Margin = new System.Windows.Forms.Padding(4);
             this.POSBtn.Name = "POSBtn";
             this.POSBtn.Size = new System.Drawing.Size(216, 48);
@@ -90,7 +90,7 @@
             this.Report.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Report.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Report.ForeColor = System.Drawing.Color.Black;
-            this.Report.Location = new System.Drawing.Point(31, 457);
+            this.Report.Location = new System.Drawing.Point(32, 538);
             this.Report.Margin = new System.Windows.Forms.Padding(4);
             this.Report.Name = "Report";
             this.Report.Size = new System.Drawing.Size(216, 48);
@@ -106,7 +106,7 @@
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.Color.Black;
-            this.button7.Location = new System.Drawing.Point(31, 512);
+            this.button7.Location = new System.Drawing.Point(32, 593);
             this.button7.Margin = new System.Windows.Forms.Padding(4);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(216, 48);
@@ -122,7 +122,7 @@
             this.categ.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.categ.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categ.ForeColor = System.Drawing.Color.Black;
-            this.categ.Location = new System.Drawing.Point(31, 402);
+            this.categ.Location = new System.Drawing.Point(32, 483);
             this.categ.Margin = new System.Windows.Forms.Padding(4);
             this.categ.Name = "categ";
             this.categ.Size = new System.Drawing.Size(216, 48);
@@ -138,7 +138,7 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.Black;
-            this.button5.Location = new System.Drawing.Point(31, 346);
+            this.button5.Location = new System.Drawing.Point(32, 427);
             this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(216, 48);
@@ -154,7 +154,7 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Location = new System.Drawing.Point(31, 291);
+            this.button4.Location = new System.Drawing.Point(32, 372);
             this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(216, 48);
@@ -170,7 +170,7 @@
             this.HomeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.HomeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HomeButton.ForeColor = System.Drawing.Color.Black;
-            this.HomeButton.Location = new System.Drawing.Point(31, 180);
+            this.HomeButton.Location = new System.Drawing.Point(32, 261);
             this.HomeButton.Margin = new System.Windows.Forms.Padding(4);
             this.HomeButton.Name = "HomeButton";
             this.HomeButton.Size = new System.Drawing.Size(216, 48);
@@ -181,11 +181,12 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Goudy Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(4, 142);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(4, 176);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(273, 57);
+            this.label1.Size = new System.Drawing.Size(273, 112);
             this.label1.TabIndex = 1;
             this.label1.Text = "Console Coffee Management System";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -194,10 +195,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ConsoleCoffe.Properties.Resources._462568849_941227144536412_2916676744882120622_n;
-            this.pictureBox1.Location = new System.Drawing.Point(69, 15);
+            this.pictureBox1.Location = new System.Drawing.Point(67, 13);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(143, 123);
+            this.pictureBox1.Size = new System.Drawing.Size(143, 139);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -205,7 +206,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Silver;
+            this.panel2.BackColor = System.Drawing.Color.SlateGray;
             this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -240,6 +241,7 @@
             // 
             // CenterPanel1
             // 
+            this.CenterPanel1.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.CenterPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CenterPanel1.Location = new System.Drawing.Point(285, 53);
             this.CenterPanel1.Margin = new System.Windows.Forms.Padding(4);

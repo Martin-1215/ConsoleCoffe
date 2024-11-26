@@ -30,6 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.exit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -46,7 +47,6 @@
             this.QtyProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PriceProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AmountProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.exit = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPOS)).BeginInit();
@@ -54,7 +54,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(137)))), ((int)(((byte)(121)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 619);
             this.panel1.Name = "panel1";
@@ -63,7 +63,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(137)))), ((int)(((byte)(121)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.panel2.Controls.Add(this.exit);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.button6);
@@ -80,9 +80,21 @@
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // exit
+            // 
+            this.exit.Location = new System.Drawing.Point(1131, 13);
+            this.exit.Margin = new System.Windows.Forms.Padding(4);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(35, 27);
+            this.exit.TabIndex = 8;
+            this.exit.Text = "x";
+            this.exit.UseVisualStyleBackColor = true;
+            this.exit.Click += new System.EventHandler(this.button1_Click);
+            // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(141, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(149, 62);
@@ -92,6 +104,7 @@
             // 
             // button6
             // 
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.Location = new System.Drawing.Point(725, 12);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(65, 62);
@@ -102,6 +115,7 @@
             // 
             // button5
             // 
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Location = new System.Drawing.Point(644, 12);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(65, 62);
@@ -111,6 +125,7 @@
             // 
             // button4
             // 
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Location = new System.Drawing.Point(563, 12);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(65, 62);
@@ -120,6 +135,7 @@
             // 
             // button3
             // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(482, 12);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(65, 62);
@@ -129,6 +145,7 @@
             // 
             // button2
             // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(401, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(65, 62);
@@ -138,6 +155,7 @@
             // 
             // NewPosBtn
             // 
+            this.NewPosBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NewPosBtn.Location = new System.Drawing.Point(320, 12);
             this.NewPosBtn.Name = "NewPosBtn";
             this.NewPosBtn.Size = new System.Drawing.Size(65, 62);
@@ -147,11 +165,12 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.pictureBox1.Image = global::ConsoleCoffe.Properties.Resources._462568849_941227144536412_2916676744882120622_n_removebg_preview;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(112, 62);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.Size = new System.Drawing.Size(124, 171);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -237,17 +256,6 @@
             this.AmountProduct.Name = "AmountProduct";
             this.AmountProduct.ReadOnly = true;
             this.AmountProduct.Width = 125;
-            // 
-            // exit
-            // 
-            this.exit.Location = new System.Drawing.Point(814, 30);
-            this.exit.Margin = new System.Windows.Forms.Padding(4);
-            this.exit.Name = "exit";
-            this.exit.Size = new System.Drawing.Size(35, 27);
-            this.exit.TabIndex = 8;
-            this.exit.Text = "x";
-            this.exit.UseVisualStyleBackColor = true;
-            this.exit.Click += new System.EventHandler(this.button1_Click);
             // 
             // POS
             // 

@@ -1,4 +1,7 @@
-﻿namespace ConsoleCoffe
+﻿using System;
+using System.Windows.Forms;
+
+namespace ConsoleCoffe
 {
     partial class frmProduct
     {
@@ -50,22 +53,27 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 9);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(329, 54);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(142, 35);
+            this.label2.Size = new System.Drawing.Size(273, 49);
             this.label2.TabIndex = 2;
             this.label2.Text = "Product List";
             // 
             // Seachbar
             // 
-            this.Seachbar.Location = new System.Drawing.Point(761, 54);
+            this.Seachbar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Seachbar.Location = new System.Drawing.Point(763, 62);
             this.Seachbar.Name = "Seachbar";
-            this.Seachbar.Size = new System.Drawing.Size(206, 22);
+            this.Seachbar.Size = new System.Drawing.Size(206, 30);
             this.Seachbar.TabIndex = 4;
             // 
             // label1
             // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(758, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 23);
@@ -210,19 +218,22 @@
             // 
             // Add
             // 
+            this.Add.BackColor = System.Drawing.Color.Black;
+            this.Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Add.ForeColor = System.Drawing.Color.White;
             this.Add.Location = new System.Drawing.Point(37, 54);
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(75, 74);
             this.Add.TabIndex = 6;
             this.Add.Text = "Add";
-            this.Add.UseVisualStyleBackColor = true;
+            this.Add.UseVisualStyleBackColor = false;
             this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
             // frmProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(137)))), ((int)(((byte)(121)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1016, 501);
             this.Controls.Add(this.Add);
             this.Controls.Add(this.Viewproduct);
@@ -232,10 +243,21 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmProduct";
             this.Text = "frmProduct";
+            this.Load += new System.EventHandler(this.frmProduct_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.Viewproduct)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void Add_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Viewproduct_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

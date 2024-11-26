@@ -107,10 +107,21 @@ namespace ConsoleCoffe
 
                 if (Viewproduct.Columns[e.ColumnIndex].Name == "Edit") // Check if the Edit button was clicked
                 {
+                    // Retrieve data from the selected row
+                    string productName = Viewproduct.Rows[e.RowIndex].Cells["pName"].Value.ToString();
+                    decimal productPrice = Convert.ToDecimal(Viewproduct.Rows[e.RowIndex].Cells["pPrice"].Value);
+                    int categoryId = Convert.ToInt32(Viewproduct.Rows[e.RowIndex].Cells["CategoryID"].Value);
+
+                    // Create and show the ProductDetails form
                     ProductDetails pd = new ProductDetails();
                     pd.id = productId; // Pass the ProductID to the ProductDetails form
+                    pd.ProductName = productName; // Pass Product Name
+                    pd.Price = productPrice; // Pass Product Price
+                    pd.catcombo = categoryId; // Pass Category ID
                     pd.ShowDialog(); // Show the ProductDetails form
-                    getData(); // Refresh the DataGridView after editing
+
+                    // Refresh the data grid after editing
+                    getData();
                 }
                 else if (Viewproduct.Columns[e.ColumnIndex].Name == "Delete") // Check if the Delete button was clicked
                 {
@@ -151,5 +162,10 @@ namespace ConsoleCoffe
         {
             getData(); // Load data when the form loads
         }
+
+        private void frmProduct_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
-}
+}   

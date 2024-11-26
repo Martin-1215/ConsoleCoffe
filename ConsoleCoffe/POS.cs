@@ -29,7 +29,9 @@ namespace ConsoleCoffe
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Hide();
+            FrmDashBoard frmM = new FrmDashBoard();
+            frmM.Show();
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
