@@ -17,6 +17,7 @@ namespace ConsoleCoffe
         public ProductDetails()
         {
             InitializeComponent();
+            
         }
 
         private string filepath;

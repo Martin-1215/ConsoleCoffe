@@ -13,11 +13,12 @@ namespace ConsoleCoffe
 {
     public partial class frmProduct : Form
     {
+
         public frmProduct()
         {
             InitializeComponent();
             InitializeDataGridView(); // Set up DataGridView columns
-            Seachbar.KeyUp += new KeyEventHandler(searchbar_KeyUp);
+            Seachbar.KeyUp += new KeyEventHandler(searchbar_KeyUp); // Attach search event
             getData(); // Load data when the form loads
         }
 
@@ -49,9 +50,7 @@ namespace ConsoleCoffe
         private void InitializeDataGridView()
         {
             Viewproduct.AutoGenerateColumns = false; // Disable auto generation of columns
-
-            // Define columns explicitly
-            Viewproduct.Columns.Clear(); // Clear any existing columns
+            Viewproduct.Columns.Clear(); // Clear existing columns
 
             // Define Product ID Column
             Viewproduct.Columns.Add(new DataGridViewTextBoxColumn
@@ -107,33 +106,37 @@ namespace ConsoleCoffe
         // Event handler for DataGridView cell clicks
         private void Viewproduct_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0) // Ensure the clicked row is valid
+            // Ensure the clicked row is valid
+            if (e.RowIndex >= 0)
             {
-                int productId = Convert.ToInt32(Viewproduct.Rows[e.RowIndex].Cells["pID"].Value); // Get the ProductID from the clicked row
+                // Get the ProductID from the clicked row
+                int productId = Convert.ToInt32(Viewproduct.Rows[e.RowIndex].Cells["pID"].Value);
 
-                if (Viewproduct.Columns[e.ColumnIndex].Name == "Edit") // Check if the Edit button was clicked
+                // Check if the clicked cell is part of the "Edit" or "Delete" columns
+                if (Viewproduct.Columns[e.ColumnIndex].Name == "Edit") // Edit button clicked
                 {
                     // Retrieve data from the selected row
                     string productName = Viewproduct.Rows[e.RowIndex].Cells["pName"].Value.ToString();
                     decimal productPrice = Convert.ToDecimal(Viewproduct.Rows[e.RowIndex].Cells["pPrice"].Value);
                     int categoryId = Convert.ToInt32(Viewproduct.Rows[e.RowIndex].Cells["CategoryID"].Value);
 
-                    // Create and show the ProductDetails form
+                    // Create and show the ProductDetails form for editing
                     ProductDetails pd = new ProductDetails();
                     pd.id = productId; // Pass the ProductID to the ProductDetails form
-                    pd.ProductName = productName; // Pass Product Name
-                    pd.Price = productPrice; // Pass Product Price
-                    pd.catcombo = categoryId; // Pass Category ID
+                    pd.productname.Text = productName; // Pass Product Name
+                    pd.Price.Text = productPrice.ToString(); // Pass Product Price
+                    pd.catcombo.Text = categoryId.ToString(); // Pass Category ID
                     pd.ShowDialog(); // Show the ProductDetails form
 
-                    // Refresh the data grid after editing
+                    // Refresh the data grid after editing (optional)
                     getData();
                 }
-                else if (Viewproduct.Columns[e.ColumnIndex].Name == "Delete") // Check if the Delete button was clicked
+                else if (Viewproduct.Columns[e.ColumnIndex].Name == "Delete") // Delete button clicked
                 {
                     DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this product?", "Confirm Delete", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
+                        // Prepare the query to delete the product from the database
                         string qry = "DELETE FROM Product WHERE pID = @id";
                         Hashtable ht = new Hashtable();
                         ht.Add("@id", productId); // Pass product ID to the query
@@ -168,6 +171,13 @@ namespace ConsoleCoffe
         private void frmProduct_Load(object sender, EventArgs e)
         {
             getData(); // Load data when the form loads
+        }
+
+        // Add a new product
+        private void Add_Click(object sender, EventArgs e)
+        {
+            ProductDetails f = new ProductDetails();
+            f.ShowDialog(); // Show the ProductDetails form for adding a new product
         }
     }
 }

@@ -197,16 +197,16 @@
         #endregion
 
         private System.Windows.Forms.Label T;
-        private System.Windows.Forms.TextBox productname;
-        private System.Windows.Forms.ComboBox catcombo;
         private System.Windows.Forms.Button BrowseBtn;
         private System.Windows.Forms.Button Save;
         private System.Windows.Forms.Button Cancel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox Price;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox Producimage;
+        public System.Windows.Forms.TextBox productname;
+        public System.Windows.Forms.ComboBox catcombo;
+        public System.Windows.Forms.TextBox Price;
     }
 }

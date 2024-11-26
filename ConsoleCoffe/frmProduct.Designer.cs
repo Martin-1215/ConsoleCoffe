@@ -118,7 +118,6 @@ namespace ConsoleCoffe
             this.Viewproduct.RowTemplate.Height = 24;
             this.Viewproduct.Size = new System.Drawing.Size(950, 334);
             this.Viewproduct.TabIndex = 5;
-            this.Viewproduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Viewproduct_CellClick_1);
             // 
             // Sr
             // 
@@ -243,22 +242,16 @@ namespace ConsoleCoffe
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmProduct";
             this.Text = "frmProduct";
-            this.Load += new System.EventHandler(this.frmProduct_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.Viewproduct)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
-        private void Add_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+       
+        
 
-        private void Viewproduct_CellClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         #endregion
 
