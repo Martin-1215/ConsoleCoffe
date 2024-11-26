@@ -34,9 +34,6 @@
             this.Seachbar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Viewproduct = new System.Windows.Forms.DataGridView();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Add = new System.Windows.Forms.Button();
             this.Sr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +42,9 @@
             this.img = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dvg = new System.Windows.Forms.DataGridViewImageColumn();
             this.dvgdel = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Add = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Viewproduct)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +63,6 @@
             this.Seachbar.Name = "Seachbar";
             this.Seachbar.Size = new System.Drawing.Size(206, 22);
             this.Seachbar.TabIndex = 4;
-            this.Seachbar.Text = "Search Here";
             // 
             // label1
             // 
@@ -112,38 +111,6 @@
             this.Viewproduct.Size = new System.Drawing.Size(950, 334);
             this.Viewproduct.TabIndex = 5;
             this.Viewproduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Viewproduct_CellClick_1);
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewImageColumn1.FillWeight = 50F;
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = global::ConsoleCoffe.Properties.Resources.edit_removebg_preview;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.MinimumWidth = 50;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Width = 50;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewImageColumn2.FillWeight = 50F;
-            this.dataGridViewImageColumn2.HeaderText = "";
-            this.dataGridViewImageColumn2.Image = global::ConsoleCoffe.Properties.Resources.delete_removebg_preview;
-            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn2.MinimumWidth = 50;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.Width = 50;
-            // 
-            // Add
-            // 
-            this.Add.Location = new System.Drawing.Point(37, 54);
-            this.Add.Name = "Add";
-            this.Add.Size = new System.Drawing.Size(75, 74);
-            this.Add.TabIndex = 6;
-            this.Add.Text = "Add";
-            this.Add.UseVisualStyleBackColor = true;
-            this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
             // Sr
             // 
@@ -218,6 +185,38 @@
             this.dvgdel.Name = "dvgdel";
             this.dvgdel.ReadOnly = true;
             this.dvgdel.Width = 50;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewImageColumn1.FillWeight = 50F;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::ConsoleCoffe.Properties.Resources.edit_removebg_preview;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.MinimumWidth = 50;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Width = 50;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewImageColumn2.FillWeight = 50F;
+            this.dataGridViewImageColumn2.HeaderText = "";
+            this.dataGridViewImageColumn2.Image = global::ConsoleCoffe.Properties.Resources.delete_removebg_preview;
+            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn2.MinimumWidth = 50;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Width = 50;
+            // 
+            // Add
+            // 
+            this.Add.Location = new System.Drawing.Point(37, 54);
+            this.Add.Name = "Add";
+            this.Add.Size = new System.Drawing.Size(75, 74);
+            this.Add.TabIndex = 6;
+            this.Add.Text = "Add";
+            this.Add.UseVisualStyleBackColor = true;
+            this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
             // frmProduct
             // 
