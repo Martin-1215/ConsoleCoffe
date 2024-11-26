@@ -31,12 +31,18 @@ namespace ConsoleCoffe
         // Method to load product data into the DataGridView
         public void getData(string search = "")
         {
-            // Update the query to fetch product data with a search filter
             string qry = "SELECT pID, pName, pPrice, CategoryID FROM Product WHERE pName LIKE @search";
             Hashtable ht = new Hashtable();
             ht.Add("@search", "%" + search + "%");
 
-            mainclass.LoadData(qry, Viewproduct, ht); // Load data into the DataGridView
+            try
+            {
+                mainclass.LoadData(qry, Viewproduct, ht); // Load data into the DataGridView
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         // Method to initialize the DataGridView
@@ -148,10 +154,11 @@ namespace ConsoleCoffe
                         catch (Exception ex)
                         {
                             // Handle any errors that occur during the delete operation
-                            MessageBox.Show($"An error occurred: {ex.Message}");
+                            MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
-                        getData(); // Refresh the DataGridView after deletion
+                        // Refresh the DataGridView after deletion
+                        getData();
                     }
                 }
             }
@@ -162,10 +169,5 @@ namespace ConsoleCoffe
         {
             getData(); // Load data when the form loads
         }
-
-        private void frmProduct_Load_1(object sender, EventArgs e)
-        {
-
-        }
     }
-}   
+}
