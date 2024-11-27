@@ -30,6 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Pass = new System.Windows.Forms.Label();
             this.txtUser = new System.Windows.Forms.TextBox();
@@ -37,7 +38,6 @@
             this.LoginBtn = new System.Windows.Forms.Button();
             this.exit = new System.Windows.Forms.Button();
             this.Showpass = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -60,13 +60,25 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(146, 153);
+            this.label3.Location = new System.Drawing.Point(138, 153);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 39);
+            this.label3.Size = new System.Drawing.Size(101, 38);
             this.label3.TabIndex = 1;
             this.label3.Text = "Login";
             this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.pictureBox1.Image = global::ConsoleCoffe.Properties.Resources._1000_F_259394679_GGA8JJAEkukYJL9XXFH2JoC3nMguBPNH_removebg_preview;
+            this.pictureBox1.Location = new System.Drawing.Point(-9, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(404, 149);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -106,6 +118,7 @@
             this.txtPass.Margin = new System.Windows.Forms.Padding(4);
             this.txtPass.Multiline = true;
             this.txtPass.Name = "txtPass";
+            this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(264, 40);
             this.txtPass.TabIndex = 5;
             this.txtPass.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
@@ -151,18 +164,6 @@
             this.Showpass.TabIndex = 8;
             this.Showpass.UseVisualStyleBackColor = true;
             this.Showpass.Click += new System.EventHandler(this.Showpass_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.pictureBox1.Image = global::ConsoleCoffe.Properties.Resources._1000_F_259394679_GGA8JJAEkukYJL9XXFH2JoC3nMguBPNH_removebg_preview;
-            this.pictureBox1.Location = new System.Drawing.Point(-9, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(404, 149);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 

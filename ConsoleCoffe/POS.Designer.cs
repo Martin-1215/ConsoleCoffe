@@ -82,7 +82,9 @@
             // 
             // exit
             // 
-            this.exit.Location = new System.Drawing.Point(1131, 13);
+            this.exit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.exit.Location = new System.Drawing.Point(1337, 12);
             this.exit.Margin = new System.Windows.Forms.Padding(4);
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(35, 27);

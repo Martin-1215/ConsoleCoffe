@@ -18,6 +18,8 @@ namespace ConsoleCoffe
         {
             InitializeComponent();
             InitializeDataGridView(); // Set up DataGridView columns
+
+            this.Viewproduct.CellClick += new DataGridViewCellEventHandler(this.Viewproduct_CellClick);
             Seachbar.KeyUp += new KeyEventHandler(searchbar_KeyUp); // Attach search event
             getData(); // Load data when the form loads
         }
@@ -112,31 +114,12 @@ namespace ConsoleCoffe
                 // Get the ProductID from the clicked row
                 int productId = Convert.ToInt32(Viewproduct.Rows[e.RowIndex].Cells["pID"].Value);
 
-                // Check if the clicked cell is part of the "Edit" or "Delete" columns
-                if (Viewproduct.Columns[e.ColumnIndex].Name == "Edit") // Edit button clicked
-                {
-                    // Retrieve data from the selected row
-                    string productName = Viewproduct.Rows[e.RowIndex].Cells["pName"].Value.ToString();
-                    decimal productPrice = Convert.ToDecimal(Viewproduct.Rows[e.RowIndex].Cells["pPrice"].Value);
-                    int categoryId = Convert.ToInt32(Viewproduct.Rows[e.RowIndex].Cells["CategoryID"].Value);
 
-                    // Create and show the ProductDetails form for editing
-                    ProductDetails pd = new ProductDetails();
-                    pd.id = productId; // Pass the ProductID to the ProductDetails form
-                    pd.productname.Text = productName; // Pass Product Name
-                    pd.Price.Text = productPrice.ToString(); // Pass Product Price
-                    pd.catcombo.Text = categoryId.ToString(); // Pass Category ID
-                    pd.ShowDialog(); // Show the ProductDetails form
-
-                    // Refresh the data grid after editing (optional)
-                    getData();
-                }
-                else if (Viewproduct.Columns[e.ColumnIndex].Name == "Delete") // Delete button clicked
+                if (Viewproduct.Columns[e.ColumnIndex].Name == "Delete") // Delete button clicked
                 {
                     DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this product?", "Confirm Delete", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        // Prepare the query to delete the product from the database
                         string qry = "DELETE FROM Product WHERE pID = @id";
                         Hashtable ht = new Hashtable();
                         ht.Add("@id", productId); // Pass product ID to the query
@@ -156,13 +139,30 @@ namespace ConsoleCoffe
                         }
                         catch (Exception ex)
                         {
-                            // Handle any errors that occur during the delete operation
                             MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
                         // Refresh the DataGridView after deletion
-                        getData();
+                        getData();  // Ensure getData is called to reload the grid
                     }
+                }
+                else if (Viewproduct.Columns[e.ColumnIndex].Name == "Edit") // Edit button clicked
+                {
+                    // Retrieve data from the selected row
+                    string productName = Viewproduct.Rows[e.RowIndex].Cells["pName"].Value.ToString();
+                    decimal productPrice = Convert.ToDecimal(Viewproduct.Rows[e.RowIndex].Cells["pPrice"].Value);
+                    int categoryId = Convert.ToInt32(Viewproduct.Rows[e.RowIndex].Cells["CategoryID"].Value);
+
+                    // Create and show the ProductDetails form for editing
+                    ProductDetails pd = new ProductDetails();
+                    pd.id = productId; // Pass the ProductID to the ProductDetails form
+                    pd.productname.Text = productName; // Pass Product Name
+                    pd.Price.Text = productPrice.ToString(); // Pass Product Price
+                    pd.catcombo.Text = categoryId.ToString(); // Pass Category ID
+                    pd.ShowDialog(); // Show the ProductDetails form
+
+                    // Refresh the data grid after editing (optional)
+                    getData();  // Ensure getData is called to reload the grid after an edit
                 }
             }
         }
@@ -178,6 +178,12 @@ namespace ConsoleCoffe
         {
             ProductDetails f = new ProductDetails();
             f.ShowDialog(); // Show the ProductDetails form for adding a new product
+            
+        }
+
+        private void frmProduct_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

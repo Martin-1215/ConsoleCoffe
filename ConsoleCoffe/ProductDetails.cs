@@ -130,6 +130,10 @@ namespace ConsoleCoffe
             {
                 MessageBox.Show("An error occurred while saving: " + ex.Message);
             }
+            finally
+            {
+                this.Hide();
+            }
         }
 
         private void ResetForm()

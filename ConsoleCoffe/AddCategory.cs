@@ -58,7 +58,7 @@ namespace ConsoleCoffe
             }
             finally
             {
-                this.Close();
+                this.Hide();
             }
         }
         private void AddCategory_Load(object sender, EventArgs e)

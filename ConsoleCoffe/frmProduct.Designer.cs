@@ -242,6 +242,7 @@ namespace ConsoleCoffe
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmProduct";
             this.Text = "frmProduct";
+            this.Load += new System.EventHandler(this.frmProduct_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.Viewproduct)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

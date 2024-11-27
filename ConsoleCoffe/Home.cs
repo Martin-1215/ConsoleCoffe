@@ -13,5 +13,10 @@ namespace ConsoleCoffe
         {
 
         }
+
+        private void Home_Load(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

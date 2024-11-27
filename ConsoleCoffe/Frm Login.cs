@@ -16,8 +16,8 @@ namespace ConsoleCoffe
         public Form1()
         {
             InitializeComponent();
-            txtPass.UseSystemPasswordChar = true; // Mask password input
-            
+
+
         }
 
         private void LoginBtn_Click(object sender, EventArgs e)
