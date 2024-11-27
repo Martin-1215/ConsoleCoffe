@@ -18,10 +18,10 @@ namespace ConsoleCoffe
         {
             InitializeComponent();
             InitializeDataGridView(); // Set up DataGridView columns
-
+           getData(); // Load data when the form loads
             this.Viewproduct.CellClick += new DataGridViewCellEventHandler(this.Viewproduct_CellClick);
             Seachbar.KeyUp += new KeyEventHandler(searchbar_KeyUp); // Attach search event
-            getData(); // Load data when the form loads
+           
         }
 
         // Search functionality
@@ -178,6 +178,7 @@ namespace ConsoleCoffe
         {
             ProductDetails f = new ProductDetails();
             f.ShowDialog(); // Show the ProductDetails form for adding a new product
+            getData();
             
         }
 
