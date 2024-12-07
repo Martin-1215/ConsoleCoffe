@@ -48,11 +48,11 @@
             this.dgvQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.l = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
             this.ucProduct1 = new ConsoleCoffe.ucProduct();
             this.ucProduct2 = new ConsoleCoffe.ucProduct();
             this.ucProduct3 = new ConsoleCoffe.ucProduct();
-            this.l = new System.Windows.Forms.Label();
-            this.lblTotal = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -275,6 +275,28 @@
             this.dgvAmount.ReadOnly = true;
             this.dgvAmount.Width = 125;
             // 
+            // l
+            // 
+            this.l.Font = new System.Drawing.Font("Microsoft YaHei UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l.ForeColor = System.Drawing.Color.White;
+            this.l.Location = new System.Drawing.Point(911, 15);
+            this.l.Name = "l";
+            this.l.Size = new System.Drawing.Size(161, 54);
+            this.l.TabIndex = 9;
+            this.l.Text = "Total:";
+            this.l.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft YaHei UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.Color.White;
+            this.lblTotal.Location = new System.Drawing.Point(1070, 15);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(302, 54);
+            this.lblTotal.TabIndex = 10;
+            this.lblTotal.Text = "00.00";
+            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ucProduct1
             // 
             this.ucProduct1.id = 0;
@@ -313,28 +335,6 @@
             this.ucProduct3.PPrice = null;
             this.ucProduct3.Size = new System.Drawing.Size(216, 220);
             this.ucProduct3.TabIndex = 2;
-            // 
-            // l
-            // 
-            this.l.Font = new System.Drawing.Font("Microsoft YaHei UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l.ForeColor = System.Drawing.Color.White;
-            this.l.Location = new System.Drawing.Point(972, 7);
-            this.l.Name = "l";
-            this.l.Size = new System.Drawing.Size(161, 54);
-            this.l.TabIndex = 9;
-            this.l.Text = "Total:";
-            this.l.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.Font = new System.Drawing.Font("Microsoft YaHei UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.ForeColor = System.Drawing.Color.White;
-            this.lblTotal.Location = new System.Drawing.Point(1139, 7);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(161, 54);
-            this.lblTotal.TabIndex = 10;
-            this.lblTotal.Text = "00.00";
-            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // POS
             // 

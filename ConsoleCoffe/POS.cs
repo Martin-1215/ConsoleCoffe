@@ -210,7 +210,7 @@ namespace ConsoleCoffe
 
             }
 
-            lblTotal.Text = total.ToString();
+            lblTotal.Text = "PHP " + total.ToString();
 
         }
     }
