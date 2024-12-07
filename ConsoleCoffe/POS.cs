@@ -121,18 +121,18 @@ namespace ConsoleCoffe
                 {
                     if (Convert.ToInt32(item.Cells["dgvid"].Value) == wdg.id)
                     {
-                        item.Cells["dgvQty"].Value = (int.Parse(item.Cells["dgvQty"].Value.ToString()) + 1);
+                        item.Cells["dgvQty"].Value = int.Parse(item.Cells["dgvQty"].Value.ToString()) + 1;
 
                         item.Cells["dgvAmount"].Value = int.Parse(item.Cells["dgvAmount"].ToString()) *
                                                         double.Parse(item.Cells["dgvPrice"].ToString());
 
-
+                        return;
                     }
                    
                 }; 
                 
                 dataGridViewPOS.Rows.Add(new object[] { 0, wdg.Pname, 1, wdg.PPrice, wdg.PPrice });
-
+                GetTotal();
 
             };
             }
@@ -185,6 +185,33 @@ namespace ConsoleCoffe
                     pro.Visible = productName.Contains(searchText);
                 }
             }
+        }
+
+        private void dataGridViewPOS_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            int count = 0;
+            foreach (DataGridViewRow row in dataGridViewPOS.Rows)
+            {
+                count ++;
+                row.Cells[0].Value = count;
+
+            }
+
+        }
+
+        private void GetTotal()
+        {
+            double total = 0;
+            lblTotal.Text = "";
+
+            foreach (DataGridViewRow item in dataGridViewPOS.Rows)
+            {
+                total += double.Parse(item.Cells["dgvAmount"].Value.ToString());
+
+            }
+
+            lblTotal.Text = total.ToString();
+
         }
     }
     }

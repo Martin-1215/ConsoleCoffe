@@ -43,14 +43,17 @@
             this.Seachbar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.CatBu = new System.Windows.Forms.Button();
-            this.ucProduct1 = new ConsoleCoffe.ucProduct();
-            this.ucProduct2 = new ConsoleCoffe.ucProduct();
-            this.ucProduct3 = new ConsoleCoffe.ucProduct();
             this.dgvid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ucProduct1 = new ConsoleCoffe.ucProduct();
+            this.ucProduct2 = new ConsoleCoffe.ucProduct();
+            this.ucProduct3 = new ConsoleCoffe.ucProduct();
+            this.l = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.CategoryPannel.SuspendLayout();
@@ -61,6 +64,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.lblTotal);
+            this.panel1.Controls.Add(this.l);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 619);
             this.panel1.Name = "panel1";
@@ -195,6 +200,7 @@
             this.dataGridViewPOS.RowHeadersWidth = 51;
             this.dataGridViewPOS.Size = new System.Drawing.Size(616, 453);
             this.dataGridViewPOS.TabIndex = 4;
+            this.dataGridViewPOS.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewPOS_CellFormatting);
             // 
             // Seachbar
             // 
@@ -224,45 +230,6 @@
             this.CatBu.TabIndex = 0;
             this.CatBu.Text = "text";
             this.CatBu.UseVisualStyleBackColor = true;
-            // 
-            // ucProduct1
-            // 
-            this.ucProduct1.id = 0;
-            this.ucProduct1.Location = new System.Drawing.Point(3, 4);
-            this.ucProduct1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ucProduct1.Name = "ucProduct1";
-            this.ucProduct1.PCategory = null;
-            this.ucProduct1.PImage = ((System.Drawing.Image)(resources.GetObject("ucProduct1.PImage")));
-            this.ucProduct1.Pname = "Product name";
-            this.ucProduct1.PPrice = null;
-            this.ucProduct1.Size = new System.Drawing.Size(216, 221);
-            this.ucProduct1.TabIndex = 0;
-            // 
-            // ucProduct2
-            // 
-            this.ucProduct2.id = 0;
-            this.ucProduct2.Location = new System.Drawing.Point(225, 4);
-            this.ucProduct2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ucProduct2.Name = "ucProduct2";
-            this.ucProduct2.PCategory = null;
-            this.ucProduct2.PImage = ((System.Drawing.Image)(resources.GetObject("ucProduct2.PImage")));
-            this.ucProduct2.Pname = "Product name";
-            this.ucProduct2.PPrice = null;
-            this.ucProduct2.Size = new System.Drawing.Size(200, 221);
-            this.ucProduct2.TabIndex = 1;
-            // 
-            // ucProduct3
-            // 
-            this.ucProduct3.id = 0;
-            this.ucProduct3.Location = new System.Drawing.Point(3, 233);
-            this.ucProduct3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ucProduct3.Name = "ucProduct3";
-            this.ucProduct3.PCategory = null;
-            this.ucProduct3.PImage = ((System.Drawing.Image)(resources.GetObject("ucProduct3.PImage")));
-            this.ucProduct3.Pname = "Product name";
-            this.ucProduct3.PPrice = null;
-            this.ucProduct3.Size = new System.Drawing.Size(216, 220);
-            this.ucProduct3.TabIndex = 2;
             // 
             // dgvid
             // 
@@ -308,6 +275,67 @@
             this.dgvAmount.ReadOnly = true;
             this.dgvAmount.Width = 125;
             // 
+            // ucProduct1
+            // 
+            this.ucProduct1.id = 0;
+            this.ucProduct1.Location = new System.Drawing.Point(3, 4);
+            this.ucProduct1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ucProduct1.Name = "ucProduct1";
+            this.ucProduct1.PCategory = null;
+            this.ucProduct1.PImage = ((System.Drawing.Image)(resources.GetObject("ucProduct1.PImage")));
+            this.ucProduct1.Pname = "Product name";
+            this.ucProduct1.PPrice = null;
+            this.ucProduct1.Size = new System.Drawing.Size(216, 221);
+            this.ucProduct1.TabIndex = 0;
+            // 
+            // ucProduct2
+            // 
+            this.ucProduct2.id = 0;
+            this.ucProduct2.Location = new System.Drawing.Point(225, 4);
+            this.ucProduct2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ucProduct2.Name = "ucProduct2";
+            this.ucProduct2.PCategory = null;
+            this.ucProduct2.PImage = ((System.Drawing.Image)(resources.GetObject("ucProduct2.PImage")));
+            this.ucProduct2.Pname = "Product name";
+            this.ucProduct2.PPrice = null;
+            this.ucProduct2.Size = new System.Drawing.Size(200, 221);
+            this.ucProduct2.TabIndex = 1;
+            // 
+            // ucProduct3
+            // 
+            this.ucProduct3.id = 0;
+            this.ucProduct3.Location = new System.Drawing.Point(3, 233);
+            this.ucProduct3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ucProduct3.Name = "ucProduct3";
+            this.ucProduct3.PCategory = null;
+            this.ucProduct3.PImage = ((System.Drawing.Image)(resources.GetObject("ucProduct3.PImage")));
+            this.ucProduct3.Pname = "Product name";
+            this.ucProduct3.PPrice = null;
+            this.ucProduct3.Size = new System.Drawing.Size(216, 220);
+            this.ucProduct3.TabIndex = 2;
+            // 
+            // l
+            // 
+            this.l.Font = new System.Drawing.Font("Microsoft YaHei UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l.ForeColor = System.Drawing.Color.White;
+            this.l.Location = new System.Drawing.Point(972, 7);
+            this.l.Name = "l";
+            this.l.Size = new System.Drawing.Size(161, 54);
+            this.l.TabIndex = 9;
+            this.l.Text = "Total:";
+            this.l.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft YaHei UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.Color.White;
+            this.lblTotal.Location = new System.Drawing.Point(1139, 7);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(161, 54);
+            this.lblTotal.TabIndex = 10;
+            this.lblTotal.Text = "00.00";
+            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // POS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -327,6 +355,7 @@
             this.Text = "POS";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.POS_Load);
+            this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.CategoryPannel.ResumeLayout(false);
@@ -361,5 +390,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvAmount;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Label l;
     }
 }
