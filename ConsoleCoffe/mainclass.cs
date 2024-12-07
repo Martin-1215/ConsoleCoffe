@@ -14,8 +14,32 @@ namespace ConsoleCoffe
 {
     internal class mainclass
     {
-        private static readonly string conString = "Data Source=LAPTOP-U6OEJ7C1\\SQLEXPRESS; Initial Catalog=ConsoleCoffee;Integrated Security=True";
 
+        private static readonly string conString = "Data Source=LAPTOP-U6OEJ7C1\\SQLEXPRESS; Initial Catalog=ConsoleCoffee;Integrated Security=True";
+        public static SqlConnection con = new SqlConnection(conString);
+
+        public static bool TestConnection()
+        {
+            try
+            {
+                con.Open();
+                return true; // Connection successful
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Connection Error: {ex.Message}");
+                return false; // Connection failed
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                return false; // Connection failed
+            }
+            finally
+            {
+                con.Close(); // Close the connection after testing
+            }
+        }
         public static bool IsValidUser(string username, string password)
         {
             bool isValid = false;
@@ -73,27 +97,6 @@ namespace ConsoleCoffe
             return res; // Return number of affected rows
         }
 
-        public static bool TestConnection()
-        {
-            using (SqlConnection con = new SqlConnection(conString))
-            {
-                try
-                {
-                    con.Open();
-                    return true; // Connection successful
-                }
-                catch (SqlException ex)
-                {
-                    Console.WriteLine($"SQL Connection Error: {ex.Message}");
-                    return false; // Connection failed
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error: {ex.Message}");
-                    return false; // Connection failed
-                }
-            }
-        }
 
         public static void LoadData(string qry, DataGridView gv, Hashtable ht)
         {
@@ -173,5 +176,11 @@ namespace ConsoleCoffe
                 // No need for finally block to close the connection, as 'using' takes care of that
             }
         }
+
+
+       
+
+
+
     }
 }

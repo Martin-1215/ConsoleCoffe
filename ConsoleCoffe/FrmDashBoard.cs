@@ -67,12 +67,12 @@ namespace ConsoleCoffe
 
         private void Report_Click(object sender, EventArgs e)
         {
-
+            AddControls(new frmReports());
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-
+            AddControls(new frmRegister());
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -82,7 +82,7 @@ namespace ConsoleCoffe
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            AddControls(new frmKitchen());
         }
 
         private void button4_Click(object sender, EventArgs e)

@@ -44,12 +44,12 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Modern No. 20", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(455, 250);
+            this.label2.Location = new System.Drawing.Point(430, 20);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(195, 52);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Bahay";
+            this.label2.Text = "Home";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // Home

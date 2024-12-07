@@ -37,19 +37,19 @@
             this.button4 = new System.Windows.Forms.Button();
             this.HomeButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.CenterPanel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.panel1.BackColor = System.Drawing.Color.SlateGray;
             this.panel1.Controls.Add(this.POSBtn);
             this.panel1.Controls.Add(this.Report);
             this.panel1.Controls.Add(this.button7);
@@ -111,7 +111,7 @@
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(216, 48);
             this.button7.TabIndex = 7;
-            this.button7.Text = "Settings";
+            this.button7.Text = "Register";
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
@@ -192,21 +192,9 @@
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ConsoleCoffe.Properties.Resources._462568849_941227144536412_2916676744882120622_n;
-            this.pictureBox1.Location = new System.Drawing.Point(67, 13);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(143, 139);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.SlateGray;
+            this.panel2.BackColor = System.Drawing.Color.LightSlateGray;
             this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -241,7 +229,7 @@
             // 
             // CenterPanel1
             // 
-            this.CenterPanel1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.CenterPanel1.BackColor = System.Drawing.Color.SlateGray;
             this.CenterPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CenterPanel1.Location = new System.Drawing.Point(285, 53);
             this.CenterPanel1.Margin = new System.Windows.Forms.Padding(4);
@@ -249,6 +237,18 @@
             this.CenterPanel1.Size = new System.Drawing.Size(1242, 688);
             this.CenterPanel1.TabIndex = 2;
             this.CenterPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ConsoleCoffe.Properties.Resources._462568849_941227144536412_2916676744882120622_n;
+            this.pictureBox1.Location = new System.Drawing.Point(67, 13);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(143, 139);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // FrmDashBoard
             // 
@@ -264,8 +264,8 @@
             this.Text = "FrmDashBoard";
             this.Load += new System.EventHandler(this.FrmDashBoard_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -28,33 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(POS));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.exit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.NewPosBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.CategoryPannel = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.ProductPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.dataGridViewPOS = new System.Windows.Forms.DataGridView();
-            this.Sr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QtyProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PriceProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AmountProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seachbar = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.CatBu = new System.Windows.Forms.Button();
+            this.ucProduct1 = new ConsoleCoffe.ucProduct();
+            this.ucProduct2 = new ConsoleCoffe.ucProduct();
+            this.ucProduct3 = new ConsoleCoffe.ucProduct();
+            this.dgvid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.CategoryPannel.SuspendLayout();
+            this.ProductPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPOS)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 619);
             this.panel1.Name = "panel1";
@@ -63,20 +69,17 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel2.Controls.Add(this.exit);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.button6);
             this.panel2.Controls.Add(this.button5);
-            this.panel2.Controls.Add(this.button4);
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.NewPosBtn);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1384, 90);
+            this.panel2.Size = new System.Drawing.Size(1384, 104);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -107,7 +110,7 @@
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(725, 12);
+            this.button6.Location = new System.Drawing.Point(922, 22);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(65, 62);
             this.button6.TabIndex = 6;
@@ -118,56 +121,28 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(644, 12);
+            this.button5.Location = new System.Drawing.Point(838, 22);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(65, 62);
             this.button5.TabIndex = 5;
             this.button5.Text = "Take Out";
             this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(563, 12);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(65, 62);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Delivery";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(482, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(65, 62);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "KOT";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(401, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(65, 62);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Bill List";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // NewPosBtn
             // 
             this.NewPosBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewPosBtn.Location = new System.Drawing.Point(320, 12);
+            this.NewPosBtn.Location = new System.Drawing.Point(756, 22);
             this.NewPosBtn.Name = "NewPosBtn";
             this.NewPosBtn.Size = new System.Drawing.Size(65, 62);
             this.NewPosBtn.TabIndex = 1;
             this.NewPosBtn.Text = "New";
             this.NewPosBtn.UseVisualStyleBackColor = true;
+            this.NewPosBtn.Click += new System.EventHandler(this.NewPosBtn_Click);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBox1.Image = global::ConsoleCoffe.Properties.Resources._462568849_941227144536412_2916676744882120622_n_removebg_preview;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
@@ -180,20 +155,26 @@
             // 
             this.CategoryPannel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.CategoryPannel.Controls.Add(this.CatBu);
             this.CategoryPannel.Location = new System.Drawing.Point(0, 149);
             this.CategoryPannel.Name = "CategoryPannel";
-            this.CategoryPannel.Size = new System.Drawing.Size(160, 453);
+            this.CategoryPannel.Size = new System.Drawing.Size(207, 453);
             this.CategoryPannel.TabIndex = 2;
             // 
-            // flowLayoutPanel2
+            // ProductPanel
             // 
-            this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.ProductPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(175, 149);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(709, 453);
-            this.flowLayoutPanel2.TabIndex = 3;
+            this.ProductPanel.AutoScroll = true;
+            this.ProductPanel.Controls.Add(this.ucProduct1);
+            this.ProductPanel.Controls.Add(this.ucProduct2);
+            this.ProductPanel.Controls.Add(this.ucProduct3);
+            this.ProductPanel.Location = new System.Drawing.Point(213, 149);
+            this.ProductPanel.Name = "ProductPanel";
+            this.ProductPanel.Size = new System.Drawing.Size(537, 453);
+            this.ProductPanel.TabIndex = 3;
+            this.ProductPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel2_Paint);
             // 
             // dataGridViewPOS
             // 
@@ -203,69 +184,139 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewPOS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPOS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Sr,
-            this.ProductName,
-            this.QtyProduct,
-            this.PriceProduct,
-            this.AmountProduct});
-            this.dataGridViewPOS.Location = new System.Drawing.Point(890, 149);
+            this.dgvid,
+            this.dgvName,
+            this.dgvQty,
+            this.dgvPrice,
+            this.dgvAmount});
+            this.dataGridViewPOS.Location = new System.Drawing.Point(756, 149);
             this.dataGridViewPOS.Name = "dataGridViewPOS";
             this.dataGridViewPOS.ReadOnly = true;
             this.dataGridViewPOS.RowHeadersWidth = 51;
-            this.dataGridViewPOS.Size = new System.Drawing.Size(482, 453);
+            this.dataGridViewPOS.Size = new System.Drawing.Size(616, 453);
             this.dataGridViewPOS.TabIndex = 4;
             // 
-            // Sr
+            // Seachbar
             // 
-            this.Sr.FillWeight = 50F;
-            this.Sr.HeaderText = "Sr#";
-            this.Sr.MinimumWidth = 50;
-            this.Sr.Name = "Sr";
-            this.Sr.ReadOnly = true;
-            this.Sr.Width = 125;
+            this.Seachbar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Seachbar.Location = new System.Drawing.Point(108, 113);
+            this.Seachbar.Name = "Seachbar";
+            this.Seachbar.Size = new System.Drawing.Size(206, 30);
+            this.Seachbar.TabIndex = 6;
+            this.Seachbar.TextChanged += new System.EventHandler(this.Seachbar_TextChanged);
             // 
-            // ProductName
+            // label2
             // 
-            this.ProductName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ProductName.HeaderText = "Name";
-            this.ProductName.MinimumWidth = 6;
-            this.ProductName.Name = "ProductName";
-            this.ProductName.ReadOnly = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(2, 113);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 30);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Search";
             // 
-            // QtyProduct
+            // CatBu
             // 
-            this.QtyProduct.FillWeight = 30F;
-            this.QtyProduct.HeaderText = "Qty";
-            this.QtyProduct.MinimumWidth = 30;
-            this.QtyProduct.Name = "QtyProduct";
-            this.QtyProduct.ReadOnly = true;
-            this.QtyProduct.Width = 125;
+            this.CatBu.Location = new System.Drawing.Point(3, 3);
+            this.CatBu.Name = "CatBu";
+            this.CatBu.Size = new System.Drawing.Size(204, 49);
+            this.CatBu.TabIndex = 0;
+            this.CatBu.Text = "text";
+            this.CatBu.UseVisualStyleBackColor = true;
             // 
-            // PriceProduct
+            // ucProduct1
             // 
-            this.PriceProduct.FillWeight = 50F;
-            this.PriceProduct.HeaderText = "Price";
-            this.PriceProduct.MinimumWidth = 50;
-            this.PriceProduct.Name = "PriceProduct";
-            this.PriceProduct.ReadOnly = true;
-            this.PriceProduct.Width = 125;
+            this.ucProduct1.id = 0;
+            this.ucProduct1.Location = new System.Drawing.Point(3, 4);
+            this.ucProduct1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ucProduct1.Name = "ucProduct1";
+            this.ucProduct1.PCategory = null;
+            this.ucProduct1.PImage = ((System.Drawing.Image)(resources.GetObject("ucProduct1.PImage")));
+            this.ucProduct1.Pname = "Product name";
+            this.ucProduct1.PPrice = null;
+            this.ucProduct1.Size = new System.Drawing.Size(216, 221);
+            this.ucProduct1.TabIndex = 0;
             // 
-            // AmountProduct
+            // ucProduct2
             // 
-            this.AmountProduct.FillWeight = 50F;
-            this.AmountProduct.HeaderText = "Amount";
-            this.AmountProduct.MinimumWidth = 50;
-            this.AmountProduct.Name = "AmountProduct";
-            this.AmountProduct.ReadOnly = true;
-            this.AmountProduct.Width = 125;
+            this.ucProduct2.id = 0;
+            this.ucProduct2.Location = new System.Drawing.Point(225, 4);
+            this.ucProduct2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ucProduct2.Name = "ucProduct2";
+            this.ucProduct2.PCategory = null;
+            this.ucProduct2.PImage = ((System.Drawing.Image)(resources.GetObject("ucProduct2.PImage")));
+            this.ucProduct2.Pname = "Product name";
+            this.ucProduct2.PPrice = null;
+            this.ucProduct2.Size = new System.Drawing.Size(200, 221);
+            this.ucProduct2.TabIndex = 1;
+            // 
+            // ucProduct3
+            // 
+            this.ucProduct3.id = 0;
+            this.ucProduct3.Location = new System.Drawing.Point(3, 233);
+            this.ucProduct3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ucProduct3.Name = "ucProduct3";
+            this.ucProduct3.PCategory = null;
+            this.ucProduct3.PImage = ((System.Drawing.Image)(resources.GetObject("ucProduct3.PImage")));
+            this.ucProduct3.Pname = "Product name";
+            this.ucProduct3.PPrice = null;
+            this.ucProduct3.Size = new System.Drawing.Size(216, 220);
+            this.ucProduct3.TabIndex = 2;
+            // 
+            // dgvid
+            // 
+            this.dgvid.FillWeight = 50F;
+            this.dgvid.HeaderText = "Sr#";
+            this.dgvid.MinimumWidth = 50;
+            this.dgvid.Name = "dgvid";
+            this.dgvid.ReadOnly = true;
+            this.dgvid.Width = 125;
+            // 
+            // dgvName
+            // 
+            this.dgvName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvName.HeaderText = "Name";
+            this.dgvName.MinimumWidth = 6;
+            this.dgvName.Name = "dgvName";
+            this.dgvName.ReadOnly = true;
+            // 
+            // dgvQty
+            // 
+            this.dgvQty.FillWeight = 30F;
+            this.dgvQty.HeaderText = "Qty";
+            this.dgvQty.MinimumWidth = 30;
+            this.dgvQty.Name = "dgvQty";
+            this.dgvQty.ReadOnly = true;
+            this.dgvQty.Width = 125;
+            // 
+            // dgvPrice
+            // 
+            this.dgvPrice.FillWeight = 50F;
+            this.dgvPrice.HeaderText = "Price";
+            this.dgvPrice.MinimumWidth = 50;
+            this.dgvPrice.Name = "dgvPrice";
+            this.dgvPrice.ReadOnly = true;
+            this.dgvPrice.Width = 125;
+            // 
+            // dgvAmount
+            // 
+            this.dgvAmount.FillWeight = 50F;
+            this.dgvAmount.HeaderText = "Amount";
+            this.dgvAmount.MinimumWidth = 50;
+            this.dgvAmount.Name = "dgvAmount";
+            this.dgvAmount.ReadOnly = true;
+            this.dgvAmount.Width = 125;
             // 
             // POS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1384, 697);
+            this.Controls.Add(this.Seachbar);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridViewPOS);
-            this.Controls.Add(this.flowLayoutPanel2);
+            this.Controls.Add(this.ProductPanel);
             this.Controls.Add(this.CategoryPannel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -278,8 +329,11 @@
             this.Load += new System.EventHandler(this.POS_Load);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.CategoryPannel.ResumeLayout(false);
+            this.ProductPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPOS)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -290,19 +344,22 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button NewPosBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel CategoryPannel;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel ProductPanel;
         private System.Windows.Forms.DataGridView dataGridViewPOS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sr;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn QtyProduct;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PriceProduct;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AmountProduct;
         private System.Windows.Forms.Button exit;
+        private System.Windows.Forms.TextBox Seachbar;
+        private System.Windows.Forms.Label label2;
+        private ucProduct ucProduct1;
+        private ucProduct ucProduct2;
+        private ucProduct ucProduct3;
+        private System.Windows.Forms.Button CatBu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvAmount;
     }
 }
