@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(POS));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.l = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.exit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -38,21 +40,20 @@
             this.NewPosBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.CategoryPannel = new System.Windows.Forms.FlowLayoutPanel();
+            this.CatBu = new System.Windows.Forms.Button();
             this.ProductPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.ucProduct1 = new ConsoleCoffe.ucProduct();
+            this.ucProduct2 = new ConsoleCoffe.ucProduct();
+            this.ucProduct3 = new ConsoleCoffe.ucProduct();
             this.dataGridViewPOS = new System.Windows.Forms.DataGridView();
             this.Seachbar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.CatBu = new System.Windows.Forms.Button();
+            this.dgvidPOS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.l = new System.Windows.Forms.Label();
-            this.lblTotal = new System.Windows.Forms.Label();
-            this.ucProduct1 = new ConsoleCoffe.ucProduct();
-            this.ucProduct2 = new ConsoleCoffe.ucProduct();
-            this.ucProduct3 = new ConsoleCoffe.ucProduct();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -71,6 +72,28 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1384, 78);
             this.panel1.TabIndex = 0;
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft YaHei UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.Color.White;
+            this.lblTotal.Location = new System.Drawing.Point(1070, 15);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(302, 54);
+            this.lblTotal.TabIndex = 10;
+            this.lblTotal.Text = "00.00";
+            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // l
+            // 
+            this.l.Font = new System.Drawing.Font("Microsoft YaHei UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l.ForeColor = System.Drawing.Color.White;
+            this.l.Location = new System.Drawing.Point(911, 15);
+            this.l.Name = "l";
+            this.l.Size = new System.Drawing.Size(161, 54);
+            this.l.TabIndex = 9;
+            this.l.Text = "Total:";
+            this.l.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
@@ -166,6 +189,15 @@
             this.CategoryPannel.Size = new System.Drawing.Size(207, 453);
             this.CategoryPannel.TabIndex = 2;
             // 
+            // CatBu
+            // 
+            this.CatBu.Location = new System.Drawing.Point(3, 3);
+            this.CatBu.Name = "CatBu";
+            this.CatBu.Size = new System.Drawing.Size(204, 49);
+            this.CatBu.TabIndex = 0;
+            this.CatBu.Text = "text";
+            this.CatBu.UseVisualStyleBackColor = true;
+            // 
             // ProductPanel
             // 
             this.ProductPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -180,122 +212,6 @@
             this.ProductPanel.Size = new System.Drawing.Size(537, 453);
             this.ProductPanel.TabIndex = 3;
             this.ProductPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel2_Paint);
-            // 
-            // dataGridViewPOS
-            // 
-            this.dataGridViewPOS.AllowUserToAddRows = false;
-            this.dataGridViewPOS.AllowUserToDeleteRows = false;
-            this.dataGridViewPOS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewPOS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPOS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvid,
-            this.dgvName,
-            this.dgvQty,
-            this.dgvPrice,
-            this.dgvAmount});
-            this.dataGridViewPOS.Location = new System.Drawing.Point(756, 149);
-            this.dataGridViewPOS.Name = "dataGridViewPOS";
-            this.dataGridViewPOS.ReadOnly = true;
-            this.dataGridViewPOS.RowHeadersWidth = 51;
-            this.dataGridViewPOS.Size = new System.Drawing.Size(616, 453);
-            this.dataGridViewPOS.TabIndex = 4;
-            this.dataGridViewPOS.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewPOS_CellFormatting);
-            // 
-            // Seachbar
-            // 
-            this.Seachbar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Seachbar.Location = new System.Drawing.Point(108, 113);
-            this.Seachbar.Name = "Seachbar";
-            this.Seachbar.Size = new System.Drawing.Size(206, 30);
-            this.Seachbar.TabIndex = 6;
-            this.Seachbar.TextChanged += new System.EventHandler(this.Seachbar_TextChanged);
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(2, 113);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 30);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Search";
-            // 
-            // CatBu
-            // 
-            this.CatBu.Location = new System.Drawing.Point(3, 3);
-            this.CatBu.Name = "CatBu";
-            this.CatBu.Size = new System.Drawing.Size(204, 49);
-            this.CatBu.TabIndex = 0;
-            this.CatBu.Text = "text";
-            this.CatBu.UseVisualStyleBackColor = true;
-            // 
-            // dgvid
-            // 
-            this.dgvid.FillWeight = 50F;
-            this.dgvid.HeaderText = "Sr#";
-            this.dgvid.MinimumWidth = 50;
-            this.dgvid.Name = "dgvid";
-            this.dgvid.ReadOnly = true;
-            this.dgvid.Width = 125;
-            // 
-            // dgvName
-            // 
-            this.dgvName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgvName.HeaderText = "Name";
-            this.dgvName.MinimumWidth = 6;
-            this.dgvName.Name = "dgvName";
-            this.dgvName.ReadOnly = true;
-            // 
-            // dgvQty
-            // 
-            this.dgvQty.FillWeight = 30F;
-            this.dgvQty.HeaderText = "Qty";
-            this.dgvQty.MinimumWidth = 30;
-            this.dgvQty.Name = "dgvQty";
-            this.dgvQty.ReadOnly = true;
-            this.dgvQty.Width = 125;
-            // 
-            // dgvPrice
-            // 
-            this.dgvPrice.FillWeight = 50F;
-            this.dgvPrice.HeaderText = "Price";
-            this.dgvPrice.MinimumWidth = 50;
-            this.dgvPrice.Name = "dgvPrice";
-            this.dgvPrice.ReadOnly = true;
-            this.dgvPrice.Width = 125;
-            // 
-            // dgvAmount
-            // 
-            this.dgvAmount.FillWeight = 50F;
-            this.dgvAmount.HeaderText = "Amount";
-            this.dgvAmount.MinimumWidth = 50;
-            this.dgvAmount.Name = "dgvAmount";
-            this.dgvAmount.ReadOnly = true;
-            this.dgvAmount.Width = 125;
-            // 
-            // l
-            // 
-            this.l.Font = new System.Drawing.Font("Microsoft YaHei UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l.ForeColor = System.Drawing.Color.White;
-            this.l.Location = new System.Drawing.Point(911, 15);
-            this.l.Name = "l";
-            this.l.Size = new System.Drawing.Size(161, 54);
-            this.l.TabIndex = 9;
-            this.l.Text = "Total:";
-            this.l.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.Font = new System.Drawing.Font("Microsoft YaHei UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.ForeColor = System.Drawing.Color.White;
-            this.lblTotal.Location = new System.Drawing.Point(1070, 15);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(302, 54);
-            this.lblTotal.TabIndex = 10;
-            this.lblTotal.Text = "00.00";
-            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ucProduct1
             // 
@@ -335,6 +251,100 @@
             this.ucProduct3.PPrice = null;
             this.ucProduct3.Size = new System.Drawing.Size(216, 220);
             this.ucProduct3.TabIndex = 2;
+            // 
+            // dataGridViewPOS
+            // 
+            this.dataGridViewPOS.AllowUserToAddRows = false;
+            this.dataGridViewPOS.AllowUserToDeleteRows = false;
+            this.dataGridViewPOS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewPOS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPOS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvidPOS,
+            this.dgvid,
+            this.dgvName,
+            this.dgvQty,
+            this.dgvPrice,
+            this.dgvAmount});
+            this.dataGridViewPOS.Location = new System.Drawing.Point(756, 149);
+            this.dataGridViewPOS.Name = "dataGridViewPOS";
+            this.dataGridViewPOS.ReadOnly = true;
+            this.dataGridViewPOS.RowHeadersWidth = 51;
+            this.dataGridViewPOS.Size = new System.Drawing.Size(616, 453);
+            this.dataGridViewPOS.TabIndex = 4;
+            this.dataGridViewPOS.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewPOS_CellFormatting);
+            // 
+            // Seachbar
+            // 
+            this.Seachbar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Seachbar.Location = new System.Drawing.Point(108, 113);
+            this.Seachbar.Name = "Seachbar";
+            this.Seachbar.Size = new System.Drawing.Size(206, 30);
+            this.Seachbar.TabIndex = 6;
+            this.Seachbar.TextChanged += new System.EventHandler(this.Seachbar_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(2, 113);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 30);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Search";
+            // 
+            // dgvidPOS
+            // 
+            this.dgvidPOS.FillWeight = 50F;
+            this.dgvidPOS.HeaderText = "Sr#";
+            this.dgvidPOS.MinimumWidth = 50;
+            this.dgvidPOS.Name = "dgvidPOS";
+            this.dgvidPOS.ReadOnly = true;
+            this.dgvidPOS.Width = 125;
+            // 
+            // dgvid
+            // 
+            this.dgvid.HeaderText = "ID";
+            this.dgvid.MinimumWidth = 6;
+            this.dgvid.Name = "dgvid";
+            this.dgvid.ReadOnly = true;
+            this.dgvid.Width = 125;
+            // 
+            // dgvName
+            // 
+            this.dgvName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvName.HeaderText = "Name";
+            this.dgvName.MinimumWidth = 6;
+            this.dgvName.Name = "dgvName";
+            this.dgvName.ReadOnly = true;
+            // 
+            // dgvQty
+            // 
+            this.dgvQty.FillWeight = 30F;
+            this.dgvQty.HeaderText = "Qty";
+            this.dgvQty.MinimumWidth = 30;
+            this.dgvQty.Name = "dgvQty";
+            this.dgvQty.ReadOnly = true;
+            this.dgvQty.Width = 125;
+            // 
+            // dgvPrice
+            // 
+            this.dgvPrice.FillWeight = 50F;
+            this.dgvPrice.HeaderText = "Price";
+            this.dgvPrice.MinimumWidth = 50;
+            this.dgvPrice.Name = "dgvPrice";
+            this.dgvPrice.ReadOnly = true;
+            this.dgvPrice.Width = 125;
+            // 
+            // dgvAmount
+            // 
+            this.dgvAmount.FillWeight = 50F;
+            this.dgvAmount.HeaderText = "Amount";
+            this.dgvAmount.MinimumWidth = 50;
+            this.dgvAmount.Name = "dgvAmount";
+            this.dgvAmount.ReadOnly = true;
+            this.dgvAmount.Width = 125;
             // 
             // POS
             // 
@@ -385,12 +395,13 @@
         private ucProduct ucProduct2;
         private ucProduct ucProduct3;
         private System.Windows.Forms.Button CatBu;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Label l;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvidPOS;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvid;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvAmount;
-        private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.Label l;
     }
 }

@@ -4,15 +4,18 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Runtime.CompilerServices;
 using System.Security.Authentication;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 
 namespace ConsoleCoffe
@@ -22,7 +25,7 @@ namespace ConsoleCoffe
         public POS()
         {
             InitializeComponent();
-
+            
 
         }
 
@@ -35,6 +38,8 @@ namespace ConsoleCoffe
 
             ProductPanel.Controls.Clear();
             LoadProducts();
+
+           
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -85,7 +90,7 @@ namespace ConsoleCoffe
                     b.Size = new Size(200, 40); // Adjust button size (optional)
                     b.BackColor = Color.FromArgb(50, 55, 89); // Set background color (optional)
                     b.ForeColor = Color.White; // Set text color (optional)
-                    
+                    b.Click += new EventHandler(_CLick);
                     // Add the button to the panel
                     CategoryPannel.Controls.Add(b);
                 }
@@ -95,6 +100,28 @@ namespace ConsoleCoffe
             }
 
 
+        }
+
+        private void _CLick(object sender, EventArgs e)
+        {
+            // Cast the sender to a Button to get the category name
+            Button categoryButton = sender as Button;
+            if (categoryButton == null) return;
+
+            // Get the selected category name
+            string selectedCategory = categoryButton.Text.ToLower();
+
+            // Iterate over all products and filter by category and search text
+            foreach (var item in ProductPanel.Controls)
+            {
+                // Cast the item as ucProduct
+                var pro = item as ucProduct;
+                if (pro == null) continue;
+
+                // Filter visibility based on category and search bar text
+                pro.Visible = pro.PCategory.ToLower().Contains(selectedCategory) &&
+                              pro.PName.Text.ToLower().Contains(Seachbar.Text.Trim().ToLower());
+            }
         }
 
         private void AddItems(int id, string name, string cat, string price, Image pimage)
@@ -119,23 +146,22 @@ namespace ConsoleCoffe
 
                 foreach (DataGridViewRow item in dataGridViewPOS.Rows)
                 {
-                    if (Convert.ToInt32(item.Cells["dgvid"].Value) == wdg.id)
+                    if (Convert.ToInt32(item.Cells["dgvid"].Value.ToString()) == wdg.id)
                     {
                         item.Cells["dgvQty"].Value = int.Parse(item.Cells["dgvQty"].Value.ToString()) + 1;
 
-                        item.Cells["dgvAmount"].Value = int.Parse(item.Cells["dgvAmount"].ToString()) *
-                                                        double.Parse(item.Cells["dgvPrice"].ToString());
+                        item.Cells["dgvAmount"].Value = int.Parse(item.Cells["dgvQty"].Value.ToString()) * double.Parse(item.Cells["dgvPrice"].Value.ToString());
 
                         return;
                     }
-                   
-                }; 
-                
+
+                };
+
                 dataGridViewPOS.Rows.Add(new object[] { 0, wdg.Pname, 1, wdg.PPrice, wdg.PPrice });
                 GetTotal();
 
             };
-            }
+        }
 
         private void LoadProducts()
         {
@@ -171,19 +197,11 @@ namespace ConsoleCoffe
 
         private void Seachbar_TextChanged(object sender, EventArgs e)
         {
-            string searchText = Seachbar.Text.Trim().ToLower(); // Get the trimmed and lowercase search text
 
             foreach (var item in ProductPanel.Controls)
             {
-                // Ensure the item is a ucProduct
-                if (item is ucProduct pro)
-                {
-                    // Check if PName is null before calling ToLower()
-                    string productName = pro.PName.Text?.ToLower() ?? string.Empty;  // Null check for PName
-
-                    // Set the visibility of the product control based on the search
-                    pro.Visible = productName.Contains(searchText);
-                }
+                var pro = (ucProduct)item;
+                pro.Visible = pro.PName.Text.ToLower().Contains(Seachbar.Text.Trim().ToLower());
             }
         }
 
@@ -206,15 +224,15 @@ namespace ConsoleCoffe
 
             foreach (DataGridViewRow item in dataGridViewPOS.Rows)
             {
+                // Check if the "dgvAmount" cell contains a valid value
                 total += double.Parse(item.Cells["dgvAmount"].Value.ToString());
-
             }
 
-            lblTotal.Text = "PHP " + total.ToString();
-
+            lblTotal.Text = "PHP " + total.ToString("N2"); // Optional: Format the total to show two decimal places
         }
+
     }
-    }
+}
 
 
 
