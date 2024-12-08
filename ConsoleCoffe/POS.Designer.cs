@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(POS));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Pay = new System.Windows.Forms.Button();
             this.lblTotal = new System.Windows.Forms.Label();
             this.l = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -48,12 +49,12 @@
             this.dataGridViewPOS = new System.Windows.Forms.DataGridView();
             this.Seachbar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dgvidPOS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prodID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -65,6 +66,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.Pay);
             this.panel1.Controls.Add(this.lblTotal);
             this.panel1.Controls.Add(this.l);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -72,6 +74,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1384, 78);
             this.panel1.TabIndex = 0;
+            // 
+            // Pay
+            // 
+            this.Pay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Pay.Location = new System.Drawing.Point(790, 7);
+            this.Pay.Name = "Pay";
+            this.Pay.Size = new System.Drawing.Size(93, 62);
+            this.Pay.TabIndex = 9;
+            this.Pay.Text = "Pay";
+            this.Pay.UseVisualStyleBackColor = true;
+            this.Pay.Click += new System.EventHandler(this.Pay_Click);
             // 
             // lblTotal
             // 
@@ -186,14 +199,14 @@
             this.CategoryPannel.Controls.Add(this.CatBu);
             this.CategoryPannel.Location = new System.Drawing.Point(0, 149);
             this.CategoryPannel.Name = "CategoryPannel";
-            this.CategoryPannel.Size = new System.Drawing.Size(207, 453);
+            this.CategoryPannel.Size = new System.Drawing.Size(174, 453);
             this.CategoryPannel.TabIndex = 2;
             // 
             // CatBu
             // 
             this.CatBu.Location = new System.Drawing.Point(3, 3);
             this.CatBu.Name = "CatBu";
-            this.CatBu.Size = new System.Drawing.Size(204, 49);
+            this.CatBu.Size = new System.Drawing.Size(171, 52);
             this.CatBu.TabIndex = 0;
             this.CatBu.Text = "text";
             this.CatBu.UseVisualStyleBackColor = true;
@@ -207,9 +220,9 @@
             this.ProductPanel.Controls.Add(this.ucProduct1);
             this.ProductPanel.Controls.Add(this.ucProduct2);
             this.ProductPanel.Controls.Add(this.ucProduct3);
-            this.ProductPanel.Location = new System.Drawing.Point(213, 149);
+            this.ProductPanel.Location = new System.Drawing.Point(180, 149);
             this.ProductPanel.Name = "ProductPanel";
-            this.ProductPanel.Size = new System.Drawing.Size(537, 453);
+            this.ProductPanel.Size = new System.Drawing.Size(468, 453);
             this.ProductPanel.TabIndex = 3;
             this.ProductPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel2_Paint);
             // 
@@ -260,17 +273,17 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewPOS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPOS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvidPOS,
             this.dgvid,
             this.dgvName,
             this.dgvQty,
             this.dgvPrice,
-            this.dgvAmount});
-            this.dataGridViewPOS.Location = new System.Drawing.Point(756, 149);
+            this.dgvAmount,
+            this.prodID});
+            this.dataGridViewPOS.Location = new System.Drawing.Point(654, 149);
             this.dataGridViewPOS.Name = "dataGridViewPOS";
             this.dataGridViewPOS.ReadOnly = true;
             this.dataGridViewPOS.RowHeadersWidth = 51;
-            this.dataGridViewPOS.Size = new System.Drawing.Size(616, 453);
+            this.dataGridViewPOS.Size = new System.Drawing.Size(718, 453);
             this.dataGridViewPOS.TabIndex = 4;
             this.dataGridViewPOS.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewPOS_CellFormatting);
             // 
@@ -294,30 +307,23 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Search";
             // 
-            // dgvidPOS
-            // 
-            this.dgvidPOS.FillWeight = 50F;
-            this.dgvidPOS.HeaderText = "Sr#";
-            this.dgvidPOS.MinimumWidth = 50;
-            this.dgvidPOS.Name = "dgvidPOS";
-            this.dgvidPOS.ReadOnly = true;
-            this.dgvidPOS.Width = 125;
-            // 
             // dgvid
             // 
+            this.dgvid.FillWeight = 30F;
             this.dgvid.HeaderText = "ID";
             this.dgvid.MinimumWidth = 6;
             this.dgvid.Name = "dgvid";
             this.dgvid.ReadOnly = true;
-            this.dgvid.Width = 125;
+            this.dgvid.Width = 30;
             // 
             // dgvName
             // 
-            this.dgvName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dgvName.HeaderText = "Name";
             this.dgvName.MinimumWidth = 6;
             this.dgvName.Name = "dgvName";
             this.dgvName.ReadOnly = true;
+            this.dgvName.Width = 150;
             // 
             // dgvQty
             // 
@@ -345,6 +351,14 @@
             this.dgvAmount.Name = "dgvAmount";
             this.dgvAmount.ReadOnly = true;
             this.dgvAmount.Width = 125;
+            // 
+            // prodID
+            // 
+            this.prodID.HeaderText = "ProductID";
+            this.prodID.MinimumWidth = 6;
+            this.prodID.Name = "prodID";
+            this.prodID.ReadOnly = true;
+            this.prodID.Width = 125;
             // 
             // POS
             // 
@@ -397,11 +411,12 @@
         private System.Windows.Forms.Button CatBu;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label l;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvidPOS;
+        private System.Windows.Forms.Button Pay;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvid;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prodID;
     }
 }

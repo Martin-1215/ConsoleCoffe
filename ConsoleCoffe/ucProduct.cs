@@ -12,6 +12,7 @@ namespace ConsoleCoffe
 {
     public partial class ucProduct : UserControl
     {
+
         public ucProduct()
         {
             InitializeComponent();
@@ -24,6 +25,8 @@ namespace ConsoleCoffe
         public string PPrice { get; set; }
 
         public string PCategory { get; set; }
+
+        public int pID {get; set;}
 
         public string Pname
         {

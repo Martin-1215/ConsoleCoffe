@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Runtime.CompilerServices;
 using System.Security.Authentication;
 using System.Security.Cryptography;
@@ -16,6 +18,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 
 namespace ConsoleCoffe
@@ -30,6 +33,7 @@ namespace ConsoleCoffe
         }
 
         public int mainID = 0;
+        public string OrderType = "";
 
         private void POS_Load(object sender, EventArgs e)
         {
@@ -44,7 +48,7 @@ namespace ConsoleCoffe
 
         private void button6_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("helloWorld");
+            OrderType = "Dine In";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -59,7 +63,7 @@ namespace ConsoleCoffe
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            OrderType = "Take Out";
         }
 
         private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
@@ -124,7 +128,7 @@ namespace ConsoleCoffe
             }
         }
 
-        private void AddItems(int id, string name, string cat, string price, Image pimage)
+        private void AddItems(int id, string name, string cat, string price, Image pimage,string ProdID)
         {
             var w = new ucProduct()
             {
@@ -132,7 +136,9 @@ namespace ConsoleCoffe
                 PPrice = price,
                 PCategory = cat,
                 PImage = pimage,
-                id = Convert.ToInt32(id)
+                id = Convert.ToInt32(id),
+                pID = Convert.ToInt32(ProdID)
+                
 
 
 
@@ -157,7 +163,7 @@ namespace ConsoleCoffe
 
                 };
 
-                dataGridViewPOS.Rows.Add(new object[] { 0, wdg.Pname, 1, wdg.PPrice, wdg.PPrice });
+                dataGridViewPOS.Rows.Add(new object[] { 0, wdg.Pname, 1, wdg.PPrice, wdg.PPrice , wdg.pID});
                 GetTotal();
 
             };
@@ -178,7 +184,7 @@ namespace ConsoleCoffe
                 Byte[] imagearray = (byte[])item["pImage"];
                 byte[] imagebytearray = imagearray;
 
-                AddItems((int)item["pID"], item["pName"].ToString(), item["catName"].ToString(), item["pPrice"].ToString(), Image.FromStream(new MemoryStream(imagearray)));
+                AddItems((int)item["pID"], item["pName"].ToString(), item["catName"].ToString(), item["pPrice"].ToString(), Image.FromStream(new MemoryStream(imagearray)), item["pID"].ToString());
 
 
 
@@ -192,6 +198,7 @@ namespace ConsoleCoffe
             {
                 dataGridViewPOS.Rows.Clear();
                 mainID = 0;
+            lblTotal.Text = "00:00";
 
             }
 
@@ -220,17 +227,123 @@ namespace ConsoleCoffe
         private void GetTotal()
         {
             double total = 0;
-            lblTotal.Text = "";
+            lblTotal.Text = "PHP 00.00";  // Default text for clarity if there are no items
 
-            foreach (DataGridViewRow item in dataGridViewPOS.Rows)
+            // Loop through each row in the DataGridView
+            foreach (DataGridViewRow row in dataGridViewPOS.Rows)
             {
-                // Check if the "dgvAmount" cell contains a valid value
-                total += double.Parse(item.Cells["dgvAmount"].Value.ToString());
+                // Check if the "dgvAmount" cell is not null or empty and contains a valid value
+                if (row.Cells["dgvAmount"].Value != null &&
+                    double.TryParse(row.Cells["dgvAmount"].Value.ToString(), out double amount))
+                {
+                    total += amount; // Accumulate the valid amount
+                }
             }
 
-            lblTotal.Text = "PHP " + total.ToString("N2"); // Optional: Format the total to show two decimal places
+            // Display the total in the lblTotal control, formatted with two decimal places
+            lblTotal.Text = "PHP " + total.ToString("N2");
         }
 
+        private void Pay_Click(object sender, EventArgs e)
+        {
+            string qry = "";
+            string qryy = "";
+            int DetailsID = 0;
+
+            // Insert or update main record in tblMain
+            if (mainID == 0)
+            {
+                // Insert new record into tblMain and get the generated MainID
+                qry = @"INSERT INTO tblMain (aDate, aTime, orderType, total, received, cChange) 
+                VALUES (@aDate, @aTime, @orderType, @total, @received, @cChange); 
+                SELECT SCOPE_IDENTITY();";
+            }
+            else
+            {
+                // Update existing record in tblMain
+                qry = @"UPDATE tblMain 
+                SET total = @total, received = @received, [Change] = @cChange 
+                WHERE MainID = @ID";
+            }
+
+            SqlCommand cmd = new SqlCommand(qry, mainclass.con);
+            cmd.Parameters.AddWithValue("@ID", mainID);
+            cmd.Parameters.AddWithValue("@aDate", Convert.ToDateTime(DateTime.Now.Date));
+            cmd.Parameters.AddWithValue("@aTime", DateTime.Now.ToShortTimeString());
+            cmd.Parameters.AddWithValue("@orderType", OrderType);
+            cmd.Parameters.AddWithValue("@total", Convert.ToDouble(lblTotal.Text.Replace("PHP", "").Trim()));
+            cmd.Parameters.AddWithValue("@received", Convert.ToDouble(0));  // Modify as needed
+            cmd.Parameters.AddWithValue("@cChange", Convert.ToDouble(0));  // Modify as needed
+
+            try
+            {
+                if (mainclass.con.State == ConnectionState.Closed) { mainclass.con.Open(); }
+                if (mainID == 0)
+                {
+                    mainID = Convert.ToInt32(cmd.ExecuteScalar()); // Get the newly generated MainID
+                }
+                else
+                {
+                    cmd.ExecuteNonQuery(); // Update the record
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Error with SQL command for tblMain: " + ex.Message);
+            }
+            finally
+            {
+                if (mainclass.con.State == ConnectionState.Open) { mainclass.con.Close(); }
+            }
+
+            // Now handle the tblDetails insertion/updating
+            foreach (DataGridViewRow row in dataGridViewPOS.Rows)
+            {
+                DetailsID = Convert.ToInt32(row.Cells["dgvid"].Value);
+
+                SqlCommand cmd2;
+
+                // If DetailsID is greater than 0, update existing record, else insert new record
+                if (DetailsID > 0)
+                {
+                     qryy = @"INSERT INTO tblDetails (MainID, proID, qty, Price, amount) 
+                     VALUES (@MainID, @proID, @qty, @Price, @amount)";
+                    cmd2 = new SqlCommand(qryy, mainclass.con);
+                }
+                else
+                {qryy = @"UPDATE tblDetails 
+                     SET proID = @proID, qty = @qty, Price = @Price, amount = @amount 
+                     WHERE DetailsID = @ID";
+                    cmd2 = new SqlCommand(qryy, mainclass.con);
+                    cmd2.Parameters.AddWithValue("@ID", DetailsID);
+                   
+                }
+
+                cmd2.Parameters.AddWithValue("@MainID", mainID); // Correct MainID
+                cmd2.Parameters.AddWithValue("@proID", Convert.ToInt32(row.Cells["prodID"].Value));
+                cmd2.Parameters.AddWithValue("@qty", Convert.ToInt32(row.Cells["dgvQty"].Value));
+                cmd2.Parameters.AddWithValue("@Price", Convert.ToDouble(row.Cells["dgvPrice"].Value));
+                cmd2.Parameters.AddWithValue("@amount", Convert.ToDouble(row.Cells["dgvAmount"].Value));
+
+                try
+                {
+                    if (mainclass.con.State == ConnectionState.Closed) { mainclass.con.Open(); }
+                    cmd2.ExecuteNonQuery();  // Execute the insert or update query
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("Error with SQL command for tblDetails: " + ex.Message);
+                }
+                finally
+                {
+                    if (mainclass.con.State == ConnectionState.Open) { mainclass.con.Close(); }
+                }
+            }
+
+            MessageBox.Show("Paid!");
+            mainID = 0;  // Reset
+            dataGridViewPOS.Rows.Clear(); // Clear the DataGridView
+        }
     }
 }
 
