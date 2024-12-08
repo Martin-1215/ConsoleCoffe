@@ -254,8 +254,8 @@ namespace ConsoleCoffe
             if (mainID == 0)
             {
                 // Insert new record into tblMain and get the generated MainID
-                qry = @"INSERT INTO tblMain (aDate, aTime, orderType, total, received, cChange) 
-                VALUES (@aDate, @aTime, @orderType, @total, @received, @cChange); 
+                qry = @"INSERT INTO tblMain (aDate, aTime, orderType, total, received, cChange ,Stat) 
+                VALUES (@aDate, @aTime, @orderType, @total, @received, @cChange, @Stat); 
                 SELECT SCOPE_IDENTITY();";
             }
             else
@@ -263,7 +263,7 @@ namespace ConsoleCoffe
                 // Update existing record in tblMain
                 qry = @"UPDATE tblMain 
                 SET total = @total, received = @received, [Change] = @cChange 
-                WHERE MainID = @ID";
+                WHERE MainID = @ID, Stat = @Stat";
             }
 
             SqlCommand cmd = new SqlCommand(qry, mainclass.con);
@@ -271,6 +271,7 @@ namespace ConsoleCoffe
             cmd.Parameters.AddWithValue("@aDate", Convert.ToDateTime(DateTime.Now.Date));
             cmd.Parameters.AddWithValue("@aTime", DateTime.Now.ToShortTimeString());
             cmd.Parameters.AddWithValue("@orderType", OrderType);
+            cmd.Parameters.AddWithValue("@Stat", "Pending".ToString());
             cmd.Parameters.AddWithValue("@total", Convert.ToDouble(lblTotal.Text.Replace("PHP", "").Trim()));
             cmd.Parameters.AddWithValue("@received", Convert.ToDouble(0));  // Modify as needed
             cmd.Parameters.AddWithValue("@cChange", Convert.ToDouble(0));  // Modify as needed

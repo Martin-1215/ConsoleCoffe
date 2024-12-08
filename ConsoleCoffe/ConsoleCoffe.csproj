@@ -130,6 +130,12 @@
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kitchen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kitchen.Designer.cs">
+      <DependentUpon>Kitchen.cs</DependentUpon>
+    </Compile>
     <Compile Include="mainclass.cs" />
     <Compile Include="POS.cs">
       <SubType>Form</SubType>
@@ -183,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kitchen.resx">
+      <DependentUpon>Kitchen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POS.resx">
       <DependentUpon>POS.cs</DependentUpon>

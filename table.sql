@@ -1,0 +1,1 @@
+﻿Select * From tblMain m inner join tblDetails d on m.MainID = d.MainID

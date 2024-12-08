@@ -82,7 +82,7 @@ namespace ConsoleCoffe
 
         private void button5_Click(object sender, EventArgs e)
         {
-            AddControls(new frmKitchen());
+            AddControls(new Kitchen());
         }
 
         private void button4_Click(object sender, EventArgs e)
