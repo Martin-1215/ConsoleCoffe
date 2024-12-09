@@ -82,7 +82,8 @@ namespace ConsoleCoffe
 
         private void button5_Click(object sender, EventArgs e)
         {
-            AddControls(new Kitchen());
+            Kitchen f = new Kitchen();
+            f.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
